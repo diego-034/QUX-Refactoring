@@ -3,7 +3,7 @@
 
     <!-- 
         Descripción detallada del producto.
-        Elegir color, canmtidad y añadir al carrito
+        Elegir color, cantidad y añadir al carrito.
     -->
     <div class="margenes" style="width: 1100px; margin: 4rem auto;">
         <div class="card mb-3" style="width: 1100px; height: 455px;">
@@ -13,6 +13,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
+                        <!-- descripción y cuidados del producto-->
                         <h5 class="card-title">Descripción</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural 
                         lead-in to additional content. This content is a little bit longer.</p>
@@ -23,6 +24,7 @@
                             <br>
                             - Secar a la sombra.
                         </p>
+                        <!-- fromulario para añadir al carrito -->
                         <form action="">
                             <input class="mb-3 @error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" required placeholder="Cantidad" min="0">
                             @error('quantity')

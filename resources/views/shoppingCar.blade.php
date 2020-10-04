@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <!-- 
-        Maquetación de una tabla en la que se visualizan los productos a comprar
-    -->
+    <!-- Maquetación de una tabla en la que se visualizan los productos a comprar -->
 
     <div class="" style="width: 1200px; margin: 4rem auto;">
         <h1 class="mb-4">Carrito de compras</h1>
@@ -73,6 +71,7 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <!-- total a pagar y compra -->
                     <td class="table-dark" style="text-transform: uppercase; font-size: 17px;">Total</td>
                     <td class="table-dark"> $150.000.00</td>
                     <td class="table-dark" colspan="3">

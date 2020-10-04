@@ -1,10 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-    <!--
-        contenido de la vista de todos los productos de la base de datos
-    -->
-
+    <!-- contenido de la vista de todos los productos de la base de datos -->
     <div class="margenes" style="width: 1100px; margin: 4rem auto;">
         <h1 style="text-transform: uppercase;" class="text-center">Productos</h1>
         <br>

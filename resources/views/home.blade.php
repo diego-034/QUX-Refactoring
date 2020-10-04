@@ -51,7 +51,8 @@
 
         <div class="contact-us container">
             <h1 class="text-center" style="margin-top: 5rem;">Contáctenos</h1>
-
+            <!-- formulario de contactenos-->
+            <form action="">
             <div class="form-row mt-3">
                 <div class="form-group col-md-6 inputs">
                     <label for="nombres">Nombres</label>
@@ -77,5 +78,6 @@
                     <button type="button" class="btn btn-secondary col-md-2 border border-dark">Enviar</button>
                 </div>
             </div>
+            </form>
         </div>
     @endsection
