@@ -21,9 +21,9 @@ Route::get('/perfil', function () {
     return view('configUser');
 });
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/productos', function () {
+    return view('products');
+});
 
 // Route::get('/', function () {
 //     return view('home');

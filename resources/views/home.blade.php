@@ -11,7 +11,8 @@
                     <!-- Parte que ve el ususario no registrado -->
                     
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="/login"><button type="button" class="btn btn-outline-light">Iniciar Sesión</button></a>
+                        <a href="/login" class="mr-2"><button type="button" class="btn btn-outline-light">Iniciar Sesión</button></a>
+                        <a href="/productos"><button type="button" class="btn btn-outline-light">Productos</button></a>
                     </div>
                 @else
                     <!-- 
