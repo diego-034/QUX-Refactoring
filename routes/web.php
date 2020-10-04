@@ -37,8 +37,12 @@ Route::get('/carrito-compras', function () {
 //     return view('crudProduct');
 // });
 
-// Route::get('/añadirProductos', function () {
+// Route::get('/crearProductos', function () {
 //     return view('addProduct');
+// });
+
+// Route::get('/crearFactura', function () {
+//     return view('addBill');
 // });
 
 Auth::routes();
