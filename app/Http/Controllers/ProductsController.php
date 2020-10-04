@@ -52,6 +52,7 @@ class ProductsController extends Controller
                 'size_m' => 'numeric',
                 'size_l' => 'numeric'
             ]);
+            //Respuesta de validacion
             if ($validator->fails()) {
                 return Redirect::action('ProductsController@index');
             }
@@ -60,9 +61,9 @@ class ProductsController extends Controller
             $input['image']="Ruta";
             $input['iva']= 0;
             $input['state']= 1;
-
+            //Se crea el registro en la base de datos
             $data = Products::create($input);
-
+            //Respondemos y redireccionamos
             return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');
@@ -78,28 +79,17 @@ class ProductsController extends Controller
     public function show(Products $products,$id)
     {
         try {
-
+            //Consultamos por id los datos mencionadoa abajo
             $product = DB::table('products')
             ->select('id', 'name',
             'description','color','price','iva',
             'dicount','size_s','size_m','size_l','state')
             ->where('id', '=', $id)->get();
-           
-            return view('products')->with('response', $product);
+            //Respondemos con los datos consultados
+            return view('viewProduct')->with('response', $product);
         } catch (Exception $ex) {
-            return view('products')->with('response', null);
+            return view('viewProduct')->with('response', null);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Products $products)
-    {
-        //
     }
 
     /**
@@ -109,9 +99,47 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products,$id)
     {
-        //
+        try {
+
+            $product = Products::find($id);
+            if ($product == null) {
+                return Redirect::action('ProductsController@index');
+            }
+            //Validaciones 
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string',
+                //'Imagen' => 'string',
+                'description' => 'required|string',
+                'color' => 'required|string',
+                'price' => 'required|numeric',
+                //'IVA' => 'required|numeric',
+                'discount' => 'required|numeric',
+                //'Estado' => 'required|boolean',
+                'size_s' => 'numeric',
+                'size_m' => 'numeric',
+                'size_l' => 'numeric'
+            ]);
+
+            if ($validator->fails()) {
+                return Redirect::action('ProductsController@index');
+            }  
+            
+            $product->name = $request->get("name");
+            $product->description = $request->get("description");
+            $product->color = $request->get("color");
+            $product->price = $request->get("price");
+            $product->discount = $request->get("discount");
+            $product->size_s = $request->get("size_s");
+            $product->size_m = $request->get("size_m");
+            $product->size_l = $request->get("size_l");        
+            $product->save();
+            //Respuesta a vista redirect
+            return Redirect::action('ProductsController@index');
+        }catch(Exception $ex) {
+            return Redirect::action('ProductsController@index');
+        }
     }
 
     /**
@@ -120,8 +148,17 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy(Products $products,$id)
     {
-        //
+        try {
+            $product = Products::find($id);
+            if ($product == null) {
+                return Redirect::action('ProductsController@index');
+            }
+            Products::destroy($product['id']);
+            return Redirect::action('ProductsController@index');
+        } catch (Exception $ex) {
+            return Redirect::action('ProductsController@index');
+        }
     }
 }
