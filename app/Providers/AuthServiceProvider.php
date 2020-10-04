@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,8 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('products-table', function ($user) {
-            if ($user->user_type == 1) {
+        Gate::define('see-post', function ($user, $us) {
+            if (1 == $us->user_type) {
                 return true;
             }
             return false;
