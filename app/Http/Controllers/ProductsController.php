@@ -24,7 +24,7 @@ class ProductsController extends Controller
             //Obtener datos con Model::all();
             $products = Products::all();
             //Retornar vista con datos en variable $response
-            if(Auth::user()->user_type == 1){
+            if(Auth::check() && Auth::user()->user_type == 1){
                  return view('crudProduct')->with('response', $products);
             }
             return view('products')->with('response', $products);
