@@ -4,7 +4,6 @@
 <style>
 .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
     padding: 3%;
 }
 .register-left{
@@ -101,6 +100,8 @@
     color: #495057;
 }
 </style>
+@extends('layouts.app')
+@section('content')
 <div class="container-fluid register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -126,10 +127,10 @@
                                 <input type="text" class="form-control" placeholder="Nombre *" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Segundo nombre *" value="" />
+                                <input type="password" class="form-control" placeholder="Contraseña *" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña *" value="" />
+                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
                             </div> 
                         </div>
                         <div class="col-md-6">
@@ -138,10 +139,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
-                            </div>
+                            </div>                            
                             <input type="submit" class="btnRegister"  value="Guardar"/>
                         </div>
                     </div>
@@ -178,3 +176,4 @@
         </div>
     </div>
 </div>
+@endsection

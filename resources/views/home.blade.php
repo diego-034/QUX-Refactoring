@@ -22,7 +22,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/" class="mr-2"><button type="button" class="btn btn-outline-light">Productos</button></a>
                         <a href="/" class="mr-2"><button type="button" class="btn btn-outline-light">Pedidos</button></a>
-                        <a href="/"><button type="button" class="btn btn-outline-light">Perfil</button></a>
+                        <a href="{{ url('perfil') }}"><button type="button" class="btn btn-outline-light">Perfil</button></a>
                     </div>
 
                 @endguest
