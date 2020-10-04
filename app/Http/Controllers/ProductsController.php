@@ -85,6 +85,7 @@ class ProductsController extends Controller
             'description','color','price','iva',
             'dicount','size_s','size_m','size_l','state')
             ->where('id', '=', $id)->get();
+            $product = Products::find($id);
             //Respondemos con los datos consultados
             return view('viewProduct')->with('response', $product);
         } catch (Exception $ex) {
