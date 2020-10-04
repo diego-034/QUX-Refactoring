@@ -37,7 +37,7 @@ Route::get('/gestionarProductos', function () {
     return view('crudProduct');
 });
 
-Route::post('/crearProductos', function () {
+Route::get('/crearProductos', function () {
     return view('addProduct');
 });
 
@@ -53,4 +53,5 @@ Route::post('/productos', 'ProductsController@store');
 Route::get('/productos/{id}', 'ProductsController@show');
 Route::delete('/productos/{id}', 'ProductsController@destroy');
 Route::post('/productos/actualizar/{id}', 'ProductsController@update');
+Route::get('/gestionarProductos', 'ProductsController@index2');
 
