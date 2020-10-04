@@ -33,6 +33,10 @@ Route::get('/carrito-compras', function () {
     return view('shoppingCar');
 });
 
+// Route::get('/gestionarProductos', function () {
+//     return view('crudProduct');
+// });
+
 // Route::get('/añadirProductos', function () {
 //     return view('addProduct');
 // });
