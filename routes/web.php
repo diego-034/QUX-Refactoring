@@ -25,13 +25,13 @@ Route::get('/productos', function () {
     return view('products');
 });
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/ver-producto', function () {
+    return view('viewProduct');
+});
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/carrito-compras', function () {
+    return view('shoppingCar');
+});
 
 // Route::get('/', function () {
 //     return view('home');
