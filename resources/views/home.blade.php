@@ -3,6 +3,7 @@
 @extends('layouts.app')
     <!--Parte que se incluye  en la pagina base -->
     @section('content')
+        <!-- jumbotron -->
         <div class="jumbotron text-center">
             <div class="container">
                     <h1 class="display-4 text-white"><strong>Q-UX</strong></h1>
@@ -29,4 +30,23 @@
                 @endguest
             </div>
         </div>
+        <!-- Fin jumbotron-->
+
+        <!-- Sobre Nosotros -->
+        <div class="about-us container">
+            <h1 class="text-center" style="margin-top: 5rem;">Sobre Nosotros</h1>
+            <hr>
+            <div class="d-flex mt-5">
+                <!-- descripción -->
+                <p class="mr-5" style="font-size: 1.2rem;">
+                    <strong> Lorem ipsum </strong> dolor sit amet consectetur adipisicing elit. Autem, dolores maiores ea possimus magni repellendus fugiat reprehenderit quod,
+                    ipsum unde voluptates maxime animi molestiae beatae omnis quis sed officia sit?, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam maiores consequuntur eius, mollitia minima magni quam dolores nobis. 
+                    Impedit porro laboriosam provident sed alias enim, id corporis perferendis ab sapiente.
+                </p>
+                <!-- imagen corporativa -->
+                <img src="{{ asset('images/q-ux.jpg') }}" alt="..." class="img-fluid" style="height: 23rem;">
+            </div>
+            <hr>
+        </div>
+
     @endsection

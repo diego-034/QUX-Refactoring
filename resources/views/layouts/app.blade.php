@@ -78,5 +78,64 @@
             @yield('content')
         </main>
     </div>
+
+     <!-- Footer -->
+     <footer class="bg-dark pt-4" style="margin-top: 7rem;">
+            <div class="container">
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold text-white" style="font-size: 1.1rem;">Q-UX</h6>
+                        <p class="text-white">Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                            consectetur
+                            adipisicing elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold text-white" style="font-size: 1.1rem;">Productos</h6>
+                        <p>
+                            <a href="{{ url('productos') }}" class="text-white" style="text-decoration: none;">Catálogo</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white" style="text-decoration: none;">Carrito de compras</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold text-white" style="font-size: 1.1rem;">Contáctenos</h6>
+                        <p class="text-white"><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                        <p class="text-white"><i class="fas fa-envelope mr-3"></i> q-ux@gmail.com</p>
+                        <p class="text-white"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p class="text-white"><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Footer links -->
+
+                <hr>
+
+                <!-- Grid row -->
+                <div class="row">
+                        <!--Copyright-->
+                        <p class="text-center text-white" style="width: 100%;">© 2020 Copyright:
+                            <strong> Q-UX</strong>  
+                        </p>
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!-- Footer Links -->
+        </footer>
+        <!-- Footer -->
 </body>
 </html>
