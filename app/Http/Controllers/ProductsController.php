@@ -100,7 +100,11 @@ class ProductsController extends Controller
      */
     public function edit(Products $products)
     {
-        //
+        try{
+
+        }catch(Exception $ex){
+            
+        }
     }
 
     /**
