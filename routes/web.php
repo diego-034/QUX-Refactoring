@@ -21,13 +21,13 @@ Route::get('/perfil', function () {
     return view('configUser');
 });
 
-// Route::get('/productos', function () {
-//     return view('products');
-// });
+Route::get('/facturas', function () {
+    return view('crudBill');
+});
 
-// Route::get('/ver-producto/{id}', function () {
-//     return view('viewProduct');
-// });
+Route::get('/configuracion', function () {
+    return view('configUser');
+});
 
 Route::get('/carrito-compras', function () {
     return view('shoppingCar');
