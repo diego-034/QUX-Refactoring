@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('products-table', function ($user) {
+            if ($user->user_type == 1) {
+                return true;
+            }
+            return false;
+        });
     }
 }
