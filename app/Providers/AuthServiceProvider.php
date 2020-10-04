@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('see-post', function ($user, $us) {
+        Gate::define('admin', function ($user, $us) {
             if (1 == $us->user_type) {
                 return true;
             }
