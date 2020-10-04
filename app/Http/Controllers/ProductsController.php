@@ -16,16 +16,12 @@ class ProductsController extends Controller
     public function index()
     {
         try {
-
+            //Get productos with Model::all();
             $products = Products::all();
-
-            if ($products == null) {
-                return $this->SendError("Error al consultar los productos");
-            }
-
-            return $this->SendResponse($products, "Productos encontrados");
+            //Resturn the view with data how parameter
+            return view('products')->with('response', $products);
         } catch (Exception $ex) {
-            return $this->SendError($ex->__toString());
+            return view('products')->with('response', null);
         }
     }
 
