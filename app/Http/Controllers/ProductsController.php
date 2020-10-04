@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +28,9 @@ class ProductsController extends Controller
             //Obtener datos con Model::all();
             $products = Products::all();
             //Retornar vista con datos en variable $response
-           
+            if(Auth::user()->user_type == 1){
+                 return view('crudProduct')->with('response', $products);
+            }
             return view('products')->with('response', $products);
         } catch (Exception $ex) {
             return view('products')->with('response', null);
@@ -30,19 +38,6 @@ class ProductsController extends Controller
     }
 
 
-    public function index2()
-    {
-        try {
-            //Obtener datos con Model::all();
-            $products = Products::all();
-            //Retornar vista con datos en variable $response
-            
-                return view('crudProduct')->with('response', $products);
-          
-        } catch (Exception $ex) {
-            return view('crudProduct')->with('response', []);
-        }
-    }
     /**
      * Store a newly created resource in storage.
      *
