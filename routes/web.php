@@ -17,6 +17,26 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/perfil', function () {
+    return view('configUser');
+});
+
+Route::get('/productos', function () {
+    return view('products');
+});
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

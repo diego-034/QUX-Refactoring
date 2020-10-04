@@ -4,7 +4,6 @@
 <style>
 .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
     padding: 3%;
 }
 .register-left{
@@ -101,6 +100,8 @@
     color: #495057;
 }
 </style>
+@extends('layouts.app')
+@section('content')
 <div class="container-fluid register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -114,7 +115,7 @@
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" disabled>Administrador</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Administrador</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -123,13 +124,13 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Primer nombre *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Segundo nombre *" value="" />
+                                <input type="text" class="form-control" placeholder="Nombre *" value="" />
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="Contraseña *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
                             </div> 
                         </div>
                         <div class="col-md-6">
@@ -138,10 +139,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
-                            </div>
+                            </div>                            
                             <input type="submit" class="btnRegister"  value="Guardar"/>
                         </div>
                     </div>
@@ -177,5 +175,5 @@
             </div>
         </div>
     </div>
-
 </div>
+@endsection
