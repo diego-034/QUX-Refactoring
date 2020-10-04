@@ -93,30 +93,53 @@ class ProductsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Products  $products
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Products $products)
-    {
-        try{
-
-        }catch(Exception $ex){
-            
-        }
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products,$id)
     {
-        //
+        try {
+
+            $product = Products::find($id);
+            if ($product == null) {
+                return Redirect::action('ProductsController@index');
+            }
+            //Validaciones 
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string',
+                //'Imagen' => 'string',
+                'description' => 'required|string',
+                'color' => 'required|string',
+                'price' => 'required|numeric',
+                //'IVA' => 'required|numeric',
+                'discount' => 'required|numeric',
+                //'Estado' => 'required|boolean',
+                'size_s' => 'numeric',
+                'size_m' => 'numeric',
+                'size_l' => 'numeric'
+            ]);
+
+            if ($validator->fails()) {
+                return Redirect::action('ProductsController@index');
+            }  
+            
+            $product->name = $request->get("name");
+            $product->description = $request->get("description");
+            $product->color = $request->get("color");
+            $product->price = $request->get("price");
+            $product->discount = $request->get("discount");
+            $product->size_s = $request->get("size_s");
+            $product->size_m = $request->get("size_m");
+            $product->size_l = $request->get("size_l");        
+            $product->save();
+            //Respuesta a vista redirect
+            return Redirect::action('ProductsController@index');
+        }catch(Exception $ex) {
+            return Redirect::action('ProductsController@index');
+        }
     }
 
     /**
@@ -125,8 +148,17 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy(Products $products,$id)
     {
-        //
+        try {
+            $product = Products::find($id);
+            if ($product == null) {
+                return Redirect::action('ProductsController@index');
+            }
+            Products::destroy($product['id']);
+            return Redirect::action('ProductsController@index');
+        } catch (Exception $ex) {
+            return Redirect::action('ProductsController@index');
+        }
     }
 }
