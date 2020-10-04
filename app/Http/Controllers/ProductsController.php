@@ -52,6 +52,7 @@ class ProductsController extends Controller
                 'size_m' => 'numeric',
                 'size_l' => 'numeric'
             ]);
+            //Respuesta de validacion
             if ($validator->fails()) {
                 return Redirect::action('ProductsController@index');
             }
@@ -60,9 +61,9 @@ class ProductsController extends Controller
             $input['image']="Ruta";
             $input['iva']= 0;
             $input['state']= 1;
-
+            //Se crea el registro en la base de datos
             $data = Products::create($input);
-
+            //Respondemos y redireccionamos
             return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');
@@ -78,13 +79,13 @@ class ProductsController extends Controller
     public function show(Products $products,$id)
     {
         try {
-
+            //Consultamos por id los datos mencionadoa abajo
             $product = DB::table('products')
             ->select('id', 'name',
             'description','color','price','iva',
             'dicount','size_s','size_m','size_l','state')
             ->where('id', '=', $id)->get();
-           
+            //Respondemos con los datos consultados
             return view('products')->with('response', $product);
         } catch (Exception $ex) {
             return view('products')->with('response', null);
