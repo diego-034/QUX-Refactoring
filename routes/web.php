@@ -25,9 +25,9 @@ Route::get('/perfil', function () {
 //     return view('products');
 // });
 
-Route::get('/ver-producto', function () {
-    return view('viewProduct');
-});
+// Route::get('/ver-producto/{id}', function () {
+//     return view('viewProduct');
+// });
 
 Route::get('/carrito-compras', function () {
     return view('shoppingCar');
@@ -41,3 +41,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos', 'ProductsController@index');
+Route::post('/productos', 'ProductsController@store');
+Route::get('/productos/{id}', 'ProductsController@show');
+

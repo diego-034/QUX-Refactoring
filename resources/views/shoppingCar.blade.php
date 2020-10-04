@@ -6,7 +6,7 @@
     -->
 
     <div class="" style="width: 1200px; margin: 4rem auto;">
-        <h1>Aún nada</h1>
+        <h1>Carrito de compras</h1>
         <table class="table table-responsive-lg">
             <thead>
                 <tr>
@@ -74,7 +74,7 @@
                 <tr>
                     <td class="table-dark" style="text-transform: uppercase; font-size: 17px;">Total</td>
                     <td class="table-dark"> $150.000.00</td>
-                    <td class="table-dark" colspan="2">
+                    <td class="table-dark" colspan="3">
                         <button type="button" class="btn btn-outline-success">Comprar</button>
                     </td class="table-dark"></td>
                 </tr>
