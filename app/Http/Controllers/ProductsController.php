@@ -88,7 +88,7 @@ class ProductsController extends Controller
             //Respondemos con los datos consultados
             return view('viewProduct')->with('response', $product);
         } catch (Exception $ex) {
-            return view('viewProduct')->with('response', null);
+            return Redirect::action('ProductsController@index');
         }
     }
 

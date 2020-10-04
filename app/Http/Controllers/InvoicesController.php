@@ -72,9 +72,14 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoices $invoices)
+    public function show(Invoices $invoices,$id)
     {
-        //
+        try{
+            $invoice = Invoices::find($id);
+            return view('invocie')->with('response', $invoice);
+           }catch(Exception $ex){
+            return Redirect::action('InvoicesController@index');
+           }
     }
 
     /**
