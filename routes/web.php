@@ -33,17 +33,17 @@ Route::get('/carrito-compras', function () {
     return view('shoppingCar');
 });
 
-// Route::get('/gestionarProductos', function () {
-//     return view('crudProduct');
-// });
+Route::get('/gestionarProductos', function () {
+    return view('crudProduct');
+});
 
-// Route::get('/crearProductos', function () {
-//     return view('addProduct');
-// });
+Route::post('/crearProductos', function () {
+    return view('addProduct');
+});
 
-// Route::get('/crearFactura', function () {
-//     return view('addBill');
-// });
+Route::post('/crearFactura', function () {
+    return view('addBill');
+});
 
 Auth::routes();
 

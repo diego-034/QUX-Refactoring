@@ -8,15 +8,14 @@
     <div class="margenes" style="width: 1100px; margin: 4rem auto;">
         <div class="card mb-3" style="width: 1100px; height: 455px;">
             <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img style="height: 450px;" src="https://dafitistaticco-a.akamaihd.net/p/color-siete-1662-32463-1-product.jpg" class="card-img" alt="...">
+                <div class="col-md-4"> <!--https://dafitistaticco-a.akamaihd.net/p/color-siete-1662-32463-1-product.jpg -->
+                    <img style="height: 450px;" src="{{ $response->image }}" class="card-img" alt="...No se ha cargado la imagen....">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <!-- descripción y cuidados del producto-->
                         <h5 class="card-title">Descripción</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural 
-                        lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">{{ $response->description }}</p>
 
                         <h5 class="card-title">Cuidados</h5>
                         <p class="card-text">
@@ -27,20 +26,11 @@
                         <!-- fromulario para añadir al carrito -->
                         <form action="/carrito" method="POST">
                             @csrf
+
+                            <p>Color: {{ $response->color }}</p>
+
                             <input class="mb-3 @error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" required placeholder="Cantidad" min="0">
                             @error('quantity')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-
-                            <select class="mb-3" name="color" id="color" style="display: block;" required>
-                                <option selected disabled>Color</option>
-                                <option value="ng"> Negro </option>
-                                <option value="bl"> Blanco </option>
-                                <option value="mr"> Marrón </option>
-                            </select>
-                            @error('color')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -60,7 +50,7 @@
                             @enderror
                             
                             <div class="d-flex justify-content-between mt-5">
-                                <p class="">Costo: $25,000.00</p>
+                                <p class="">Costo: ${{ $response->price }}</p>
                                 <button type="submit" class="btn btn-success">Añadir al carrito</button>
                             </div>
                         </form>
