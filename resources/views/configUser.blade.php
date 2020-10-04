@@ -1,6 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@extends('layouts.app')
 <style>
 .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -100,9 +98,11 @@
     color: #495057;
 }
 </style>
-@extends('layouts.app')
 @section('content')
-<div class="container-fluid register">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container-mt-5 register">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
@@ -149,13 +149,13 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Primer nombre *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Segundo nombre *" value="" />
+                                <input type="text" class="form-control" placeholder="Nombre *" value="" />
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="Contraseña *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
                             </div> 
                         </div>
                         <div class="col-md-6">
@@ -164,10 +164,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
-                            </div>
+                            </div>                            
                             <input type="submit" class="btnRegister"  value="Guardar"/>
                         </div>
                     </div>

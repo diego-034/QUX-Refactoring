@@ -33,8 +33,8 @@ Route::get('/carrito-compras', function () {
     return view('shoppingCar');
 });
 
-// Route::get('/', function () {
-//     return view('home');
+// Route::get('/añadirProductos', function () {
+//     return view('addProduct');
 // });
 
 Auth::routes();
