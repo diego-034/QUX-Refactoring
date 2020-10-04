@@ -6,8 +6,9 @@
     -->
 
     <div class="" style="width: 1200px; margin: 4rem auto;">
-        <h1>Carrito de compras</h1>
-        <table class="table table-responsive-lg">
+        <h1 class="mb-4">Carrito de compras</h1>
+        <div class="table-responsive">
+        <table class="table table-responsive-lg table-hover">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
