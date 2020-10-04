@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Products;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,18 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        try {
+
+            $products = Products::all();
+
+            if ($products == null) {
+                return $this->SendError("Error al consultar los productos");
+            }
+
+            return $this->SendResponse($products, "Productos encontrados");
+        } catch (Exception $ex) {
+            return $this->SendError($ex->__toString());
+        }
     }
 
     /**
