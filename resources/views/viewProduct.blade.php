@@ -25,7 +25,8 @@
                             - Secar a la sombra.
                         </p>
                         <!-- fromulario para añadir al carrito -->
-                        <form action="">
+                        <form action="/carrito" method="POST">
+                            @csrf
                             <input class="mb-3 @error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" required placeholder="Cantidad" min="0">
                             @error('quantity')
                                     <span class="invalid-feedback" role="alert">

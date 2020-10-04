@@ -14,7 +14,7 @@
                         <h5 class="card-title">Color : {{ $product->color }}</h5>
                         <h5 class="card-title">Precio: ${{ $product->price }}</h5>
 
-                        <a href="/productos/{{ $productos->id }}" class="btn btn-outline-success btn-block">Ver</a>
+                        <a href="/productos/{{ $product->id }}" class="btn btn-outline-success btn-block">Ver</a>
                     </div>
                 </div>
             </div>
