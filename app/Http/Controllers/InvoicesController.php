@@ -20,11 +20,11 @@ class InvoicesController extends Controller
     {
         try {
             //Obtener datos con Model::all();
-            $products = Invoices::all();
+            $invoices = Invoices::all();
             //Retornar vista con datos en variable $response
-            return view('home')->with('response', $products);
+            return view('crudBill')->with('response', $invoices);
         } catch (Exception $ex) {
-            return view('home')->with('response', null);
+            return view('crudBill')->with('response', null);
         }
     }
 
@@ -72,20 +72,14 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoices $invoices)
+    public function show(Invoices $invoices,$id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Invoices  $invoices
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Invoices $invoices)
-    {
-        //
+        try{
+            $invoice = Invoices::find($id);
+            return view('crudBill')->with('response', $invoice);
+           }catch(Exception $ex){
+            return Redirect::action('InvoicesController@index');
+           }
     }
 
     /**
@@ -95,9 +89,43 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoices $invoices)
+    public function update(Request $request, Invoices $invoices, $id)
     {
-        //
+        try {
+
+            $invoices = Invoices::find($id);
+            if ($invoices == null) {
+                return Redirect::action('InvoicesController@index');
+            }
+            //Validaciones 
+            $validator = Validator::make($request->all(), [
+                'total' => 'required|numeric',
+                //'Imagen' => 'string',
+                'total_discount' => 'required|numeric',
+                'total_iva' => 'required|numeric',
+                'price' => 'required|numeric',
+                //'IVA' => 'required|numeric',
+                'discount' => 'required|numeric',
+                //'Estado' => 'required|boolean',
+                'client_id' => 'numeric'
+            ]);
+
+            if ($validator->fails()) {
+                return Redirect::action('InvoicesController@index');
+            }  
+            
+            $invoices->total = $request->get("total");
+            $invoices->total_discount = $request->get("total_discount");
+            $invoices->total_iva = $request->get("total_iva");
+            $invoices->price = $request->get("price");
+            $invoices->discount = $request->get("discount");
+            $invoices->client_id = $request->get("client_id");       
+            $invoices->save();
+            //Respuesta a vista redirect
+            return Redirect::action('InvoicesController@index');
+        }catch(Exception $ex) {
+            return Redirect::action('InvoicesController@index');
+        }
     }
 
     /**
@@ -106,8 +134,17 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoices $invoices)
+    public function destroy(Invoices $invoices,$id)
     {
-        //
+        try {
+            $invoices = Invoices::find($id);
+            if ($invoices == null) {
+                return Redirect::action('InvoicesController@index');
+            }
+            Invoices::destroy($invoices['id']);
+            return Redirect::action('InvoicesController@index');
+        } catch (Exception $ex) {
+            return Redirect::action('InvoicesController@index');
+        }
     }
 }
