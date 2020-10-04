@@ -86,9 +86,9 @@ class ProductsController extends Controller
             'dicount','size_s','size_m','size_l','state')
             ->where('id', '=', $id)->get();
             //Respondemos con los datos consultados
-            return view('products')->with('response', $product);
+            return view('viewProduct')->with('response', $product);
         } catch (Exception $ex) {
-            return view('products')->with('response', null);
+            return view('viewProduct')->with('response', null);
         }
     }
 
