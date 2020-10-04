@@ -14,6 +14,9 @@ class UsersSeeder extends Seeder
     public function run()
     {
         $data = [
+            'user_type'=> '1',
+            'address'=>'Crr Test # Test -Test',
+            'phone'=>'3016850462',
             'name' => "User_Prueba",
             'email' => "admin@mail.com",
             'password' => "$2y$10$/O2ETLscMHEBibQlrVTNd.OKhZ5oXAlcm3RZpArX1uMndRhJ.aAKG"
