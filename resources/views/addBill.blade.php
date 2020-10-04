@@ -5,24 +5,13 @@
     <div class="form-v10-content">
         <form class="form-detail" action="#" method="post" id="myform">
             <div class="form-left">
-                <h2>Product Infomation</h2>
-                <div class="form-row">
-                    <select name="title">
-                        <option class="option" value="title">Title</option>
-                        <option class="option" value="businessman">Businessman</option>
-                        <option class="option" value="reporter">Reporter</option>
-                        <option class="option" value="secretary">Secretary</option>
-                    </select>
-                    <span class="select-btn">
-                        <i class="zmdi zmdi-chevron-down"></i>
-                    </span>
-                </div>
+                <h2>Product Infomation</h2>                
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                        <input type="text" name="first_name" id="first_name" class="input-text" placeholder="First Name" required>
+                        <input type="text" name="first_name" id="first_name" class="input-text" placeholder="Cod. producto" required>
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" required>
+                        <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Nombre" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -37,7 +26,7 @@
                     </span>
                 </div>
                 <div class="form-row">
-                    <input type="text" name="company" class="company" id="company" placeholder="Company" required>
+                    <input type="number" name="company" class="company" id="company" placeholder="Cantidad" required>
                 </div>
                 <div class="form-group">
                     <div class="form-row form-row-3">
@@ -56,6 +45,9 @@
                     </div>
                 </div>
             </div>
+
+
+            
             <div class="form-right">
                 <h2>Contact Details</h2>
                 <div class="form-row">
