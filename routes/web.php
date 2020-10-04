@@ -53,5 +53,5 @@ Route::post('/productos', 'ProductsController@store');
 Route::get('/productos/{id}', 'ProductsController@show');
 Route::delete('/productos/{id}', 'ProductsController@destroy');
 Route::post('/productos/actualizar/{id}', 'ProductsController@update');
-Route::get('/gestionarProductos', 'ProductsController@index2');
+Route::get('/gestionarProductos', 'ProductsController@index');
 
