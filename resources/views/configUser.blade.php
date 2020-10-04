@@ -114,7 +114,7 @@
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" disabled>Administrador</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Administrador</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -123,7 +123,7 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Primer nombre *" value="" />
+                                <input type="text" class="form-control" placeholder="Nombre *" value="" />
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Segundo nombre *" value="" />
@@ -177,5 +177,4 @@
             </div>
         </div>
     </div>
-
 </div>
