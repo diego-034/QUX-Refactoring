@@ -52,7 +52,7 @@
         <div class="contact-us container">
             <h1 class="text-center" style="margin-top: 5rem;">Contáctenos</h1>
             <!-- formulario de contactenos-->
-            <form action="/carrito" method="POST">
+            <form action="/" method="POST">
                 @csrf
                 <div class="form-row mt-3">
                     <div class="form-group col-md-6 inputs">
