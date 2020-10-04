@@ -28,6 +28,18 @@ class ProductsController extends Controller
         }
     }
 
+    public function index2()
+    {
+        try {
+            //Obtener datos con Model::all();
+            $products = Products::all();
+            //Retornar vista con datos en variable $response
+            return view('crudProduct')->with('response', $products);
+        } catch (Exception $ex) {
+            return view('crudProduct')->with('response', null);
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.
