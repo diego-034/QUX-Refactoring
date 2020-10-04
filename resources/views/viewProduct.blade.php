@@ -24,23 +24,41 @@
                             - Secar a la sombra.
                         </p>
                         <form action="">
-                            <input class="mb-3" type="number" name="" id="" placeholder="cantidad" min="0">
-                            <select name="" id="" style="display: block;">
+                            <input class="mb-3 @error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" required placeholder="Cantidad" min="0">
+                            @error('quantity')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                            <select class="mb-3" name="color" id="color" style="display: block;" required>
                                 <option selected disabled>Color</option>
                                 <option value="ng"> Negro </option>
                                 <option value="bl"> Blanco </option>
                                 <option value="mr"> Marrón </option>
                             </select>
-                            <select class="mt-3" name="" id="" style="display: block;">
+                            @error('color')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                            <select class="" name="size" id="size" style="display: block;" required>
                                 <option selected disabled>Seleccione una talla</option>
                                 <option value="s"> S </option>
                                 <option value="m"> M </option>
                                 <option value="l"> L </option>
                                 <option value="xl"> XL </option>
                             </select>
+                            @error('size')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                            
                             <div class="d-flex justify-content-between mt-5">
                                 <p class="">Costo: $25,000.00</p>
-                                <button type="button" class="btn btn-success">Añadir al carrito</button>
+                                <button type="submit" class="btn btn-success">Añadir al carrito</button>
                             </div>
                         </form>
                         

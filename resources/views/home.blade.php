@@ -8,16 +8,16 @@
                     <h1 class="display-4 text-white"><strong>Q-UX</strong></h1>
                     <p class="text-white"><strong>Diseña Tu Camisa</strong></p>
                 @guest
-                    <!-- Parte que ve el ususario no registrado -->
+                    <!-- Parte que ve el usuario no registrado -->
                     
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="/login" class="mr-2"><button type="button" class="btn btn-outline-light">Iniciar Sesión</button></a>
-                        <a href="/productos"><button type="button" class="btn btn-outline-light">Productos</button></a>
+                        <a href="{{ url('login') }}" class="mr-2"><button type="button" class="btn btn-outline-light">Iniciar Sesión</button></a>
+                        <a href="{{ url('productos') }}"><button type="button" class="btn btn-outline-light">Productos</button></a>
                     </div>
                 @else
                     <!-- 
-                        Parte que ve el usuario registrado 
-                        Botones que nos dirigiran a las distintas vistas    
+                        Parte que ve el usuario registrado.
+                        Botones que nos dirigiran a las distintas vistas.    
                     -->
                     <h3 class="text-white">Bienvenido {{ Auth::user()->name }}</h3>
                     <div class="btn-group" role="group" aria-label="Basic example">

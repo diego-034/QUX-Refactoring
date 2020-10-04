@@ -21,9 +21,9 @@ Route::get('/perfil', function () {
     return view('configUser');
 });
 
-Route::get('/productos', function () {
-    return view('products');
-});
+// Route::get('/productos', function () {
+//     return view('products');
+// });
 
 Route::get('/ver-producto', function () {
     return view('viewProduct');
@@ -40,3 +40,4 @@ Route::get('/carrito-compras', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/productos', 'ProductsController@index');
