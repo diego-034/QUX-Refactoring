@@ -22,21 +22,12 @@ class ProductsController extends Controller
             //Obtener datos con Model::all();
             $products = Products::all();
             //Retornar vista con datos en variable $response
+            if($this->authorize('products-table')){
+                return view('crudProduct')->with('response', $products);
+            }
             return view('products')->with('response', $products);
         } catch (Exception $ex) {
             return view('products')->with('response', null);
-        }
-    }
-
-    public function index2()
-    {
-        try {
-            //Obtener datos con Model::all();
-            $products = Products::all();
-            //Retornar vista con datos en variable $response
-            return view('crudProduct')->with('response', $products);
-        } catch (Exception $ex) {
-            return view('crudProduct')->with('response', null);
         }
     }
 
