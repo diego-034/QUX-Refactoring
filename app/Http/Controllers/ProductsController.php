@@ -80,11 +80,11 @@ class ProductsController extends Controller
     {
         try {
             //Consultamos por id los datos mencionadoa abajo
-            $product = DB::table('products')
-            ->select('id', 'name',
-            'description','color','price','iva',
-            'dicount','size_s','size_m','size_l','state')
-            ->where('id', '=', $id)->get();
+            // $product = DB::table('products')
+            // ->select('id', 'name',
+            // 'description','color','price','iva',
+            // 'dicount','size_s','size_m','size_l','state')
+            // ->where('id', '=', $id)->get();
             $product = Products::find($id);
             //Respondemos con los datos consultados
             return view('viewProduct')->with('response', $product);
