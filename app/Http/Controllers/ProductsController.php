@@ -91,6 +91,9 @@ class ProductsController extends Controller
             // 'dicount','size_s','size_m','size_l','state')
             // ->where('id', '=', $id)->get();
             $product = Products::find($id);
+            if(Auth::check() && Auth::user()->user_type == 1){
+                return view('editProduct')->with('response', $products);
+           }
             //Respondemos con los datos consultados
             return view('viewProduct')->with('response', $product);
         } catch (Exception $ex) {
