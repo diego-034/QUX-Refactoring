@@ -32,27 +32,45 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('carrito-compras') }}">{{ __('Carrito de compras') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"href="{{ url('productos') }}">{{ __('Productos') }}</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                             </li>
+                            
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('carrito-compras') }}">{{ __('Carrito de compras') }}</a>
-                            </li>
                         @else
+                            <!-- Rutas para el usuario Logueado -->
+                            @can('admin', Auth::user())
+                            <!-- Rutas protegidas en el navbar para solo el usuario admin -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('productos') }}">{{ __('Gestión de Facturas') }}</a>
+                                </li>
+                            @endcan
+
+                            @can('customer', Auth::user())
+                            <!-- Rutas protegidas en el navbar para solo el usuario comprador -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('carrito-compras') }}">{{ __('Carrito de compras') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"href="{{ url('productos') }}">{{ __('Productos') }}</a>
+                                </li>
+                            @endcan
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -62,7 +80,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ url('perfil') }}">
                                          Perfil 
@@ -84,7 +102,7 @@
     </div>
 
      <!-- Footer -->
-     <footer class="bg-dark pt-4" style="margin-top: 7rem;">
+     <footer class="bg-dark pt-4">
             <div class="container">
                 <!-- Footer links -->
                 <div class="row text-center text-md-left mt-3 pb-3">

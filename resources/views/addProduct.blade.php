@@ -5,80 +5,62 @@
 <div class="wrapper wrapper--w790">
     <div class="card card-5">
         <div class="card-heading">
-            <h2 class="title">Event Registration Form</h2>
+            <h2 class="title">Crear nuevo producto</h2>
         </div>
         <div class="card-body">
             <form method="POST">
             <div class="form-row">
-                    <div class="name">Nombre</div>
+                <div class="name">Nombre</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="company">
+                            <input class="form-control" type="text" name="name">
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="name">Company</div>
+                    <div class="name">Imagen del producto</div>
+                    <div class="value">
+                        <input class="" type="file" name="image">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Descripcion</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="company">
+                            <input class="form-control" type="text" name="description">
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="name">Email</div>
+                    <div class="name">Color</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="email" name="email">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row m-b-55">
-                    <div class="name">Phone</div>
-                    <div class="value">
-                        <div class="row row-refine">
-                            <div class="col-3">
-                                <div class="input-group-desc">
-                                    <input class="form-control" type="text" name="area_code">
-                                    <label class="label--desc">Area Code</label>
-                                </div>
-                            </div>
-                            <div class="col-9">
-                                <div class="input-group-desc">
-                                    <input class="form-control" type="text" name="phone">
-                                    <label class="label--desc">Phone Number</label>
-                                </div>
-                            </div>
+                            <input class="form-control" type="text" name="color">
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="name">Subject</div>
+                    <div class="name">Precio</div>
                     <div class="value">
                         <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option>Subject 1</option>
-                                    <option>Subject 2</option>
-                                    <option>Subject 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+                            <input class="form-control" type="number" name="precio">
                         </div>
                     </div>
                 </div>
-                <div class="form-row p-t-20">
-                    <label class="label label--block">Are you an existing customer?</label>
-                    <div class="p-t-15">
-                        <label class="radio-container m-r-55">Yes
-                            <input type="radio" checked="checked" name="exist">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio-container">No
-                            <input type="radio" name="exist">
-                            <span class="checkmark"></span>
-                        </label>
+                <div class="form-row">
+                    <div class="name">IVA</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="iva" value="19" disabled placeholder="19">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="name">Descuento</div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="form-control" type="number" name="discount" min="0">
+                        </div>
                     </div>
                 </div>
                 <div>

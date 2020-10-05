@@ -33,7 +33,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<div class="container-xl">
+<div class="container-xl" style="margin-bottom: 7rem; margin-top: 5rem;">
 	<div class="table-responsive">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -50,12 +50,7 @@ $(document).ready(function(){
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th>
+						
 						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Color</th>
@@ -66,12 +61,6 @@ $(document).ready(function(){
 				<tbody>
 					@foreach($response as $product)
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td>
 							<td>{{ $product->name }}</td>
 							<td>{{ $product->description }}</td>
 							<td>{{ $product->color }}</td>
@@ -85,7 +74,7 @@ $(document).ready(function(){
 					@endforeach
 				</tbody>
 			</table>
-			<div class="clearfix">
+			<!-- <div class="clearfix">
 				<div class="hint-text">Showing <b>0</b> out of <b>0</b> entries</div>
 				<ul class="pagination">
 					<li class="page-item disabled"><a href="#">Previous</a></li>
@@ -96,7 +85,7 @@ $(document).ready(function(){
 					<li class="page-item"><a href="#" class="page-link">5</a></li>
 					<li class="page-item"><a href="#" class="page-link">Next</a></li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</div>        
 </div>
