@@ -58,23 +58,23 @@
                 <div class="form-row mt-3">
                     <div class="form-group col-md-6 inputs">
                         <label for="nombres">Nombres</label>
-                        <input type="text" class="form-control border border-dark" id="nombre" placeholder="Nombre">
+                        <input type="text" class="form-control border border-dark" name="name" placeholder="Nombre">
                         <!-- <small *ngIf="nombreNoValido" class="text-danger">Ingrese 3 letras</small> -->
                     </div>
 
                     <div class="form-group col-md-6 inputs">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control border border-dark" id="apellido" placeholder="Apellido">
+                        <input type="text" class="form-control border border-dark" name="lastname" placeholder="Apellido">
                     </div>
 
                     <div class="form-group col-md-12 inputs">
                         <label for="apellidos">Asunto</label>
-                        <input type="text" class="form-control border border-dark" id="Asunto" placeholder="Asunto">
+                        <input type="text" class="form-control border border-dark" name="topic" placeholder="Asunto">
                     </div>
 
                     <div class="form-group col-md-12 inputs">
                         <label for="apellidos">Mensaje</label>
-                        <textarea type="text" class="form-control border border-dark" id="Asunto" rows="6" placeholder="Escriba su mensaje"></textarea>
+                        <textarea type="text" class="form-control border border-dark" name="message" rows="6" placeholder="Escriba su mensaje"></textarea>
                     </div>
                     <div class="form-group col-md-12 text-center">
                         <button type="button" class="btn btn-secondary col-md-2 border border-dark">Enviar</button>

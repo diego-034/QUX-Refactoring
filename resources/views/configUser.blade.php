@@ -60,27 +60,27 @@
                     <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" disabled>Administrador</a>
                 </li>
             </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Configuración del perfil</h3>
+            <div class="tab-content" id="myTabContent">                
+                <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">Configuración del perfil</h3>
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre *" value="" />
+                                <input type="text" class="form-control" placeholder="Nombre *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña *" value="" />
+                                <input type="password" class="form-control" placeholder="Contraseña *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="" />
+                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="{{$response->name}}"/>
                             </div> 
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
+                                <input type="email" class="form-control" placeholder="Email *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="" />
+                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="{{$response->name}}"/>
                             </div>                            
                             <input type="submit" class="btnRegister"  value="Guardar"/>
                         </div>

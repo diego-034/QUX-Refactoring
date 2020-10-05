@@ -74,7 +74,7 @@ $(document).ready(function(){
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
 							<button type="button"  class="delete" onclick="event.preventDefault();if(confirm('¿Estas Seguro?')){document.getElementById('delete-product{{ $product->id}}').submit();};">
 								<i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></button>
-							<form id="delete-product{{  $product->id}}" action="/productos/{{$product->id}}" method="POST" style="display: none;">
+							<form id="delete-product{{  $product->id}}" action="/facturas/{{$product->id}}" method="POST" style="display: none;">
 								@method('DELETE')
 								<input name="comment_id" value="{{$product->id}}">
 								@csrf

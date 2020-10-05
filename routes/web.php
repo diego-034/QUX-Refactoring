@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::post('/', 'ProductsController@email');
 
 
 
@@ -63,3 +64,5 @@ Route::delete('/productos/{id}', 'ProductsController@destroy');
 Route::post('/productos/actualizar/{id}', 'ProductsController@update');
 Route::get('/facturas', 'InvoicesController@index');
 Route::get('/perfil/{id}', 'TypesController@show');
+Route::delete('/facturas/{id}', 'InvoicesController@destroy');
+
