@@ -68,7 +68,13 @@ $(document).ready(function(){
 							<td>
 								<a href="#" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+								<button type="button"  class="delete" onclick="event.preventDefault();if(confirm('Are you secure?')){document.getElementById('delete-product{{ $product->id}}').submit();};
+                                                     "><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></button>
+                                    <form id="delete-product{{  $product->id}}" action="/productos/{{$product->id}}" method="POST" style="display: none;">
+                                        @method('DELETE')
+                                        <input name="comment_id" value="{{$product->id}}">
+                                        @csrf
+                                    </form>
 							</td>
 						</tr>
 					@endforeach
@@ -93,7 +99,7 @@ $(document).ready(function(){
 <div id="deleteEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form >
 				<div class="modal-header">						
 					<h4 class="modal-title">Eliminar Producto</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
