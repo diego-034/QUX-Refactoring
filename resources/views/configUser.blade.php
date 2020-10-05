@@ -24,28 +24,69 @@
             <div class="tab-content" id="myTabContent">                
                 <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="profile-tab">
                     <h3  class="register-heading">Configuración del perfil</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre *" value="{{$response->name}}" />
+                    <form action="" method="POST">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Nombre *" value="{{$response->name}}" required>
+                                </div>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="tel" name="phone" minlength="10" maxlength="10" class="form-control" placeholder="Celular *" value="{{$response->phone}}" required>
+                                </div>     
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Dirección de correo *" value="{{$response->email}}" required>
+                                </div>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña *" value="{{$response->name}}" />
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name='address' class="form-control" placeholder="Dirección *" value="{{$response->address}}" required>
+                                </div>
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="password" name="pass" class="form-control" placeholder="Contraseña *" required>
+                                </div>
+                                @error('pass')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="password" name="pass2" class="form-control"  placeholder="Confirmar Contraseña *" required>
+                                </div>
+                                @error('pass2')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <input type="submit" class="btnRegister"  value="Guardar"/>
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="{{$response->name}}"/>
-                            </div> 
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="{{$response->name}}" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="{{$response->name}}"/>
-                            </div>                            
-                            <input type="submit" class="btnRegister"  value="Guardar"/>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
           </div>
@@ -63,28 +104,70 @@
             <div class="tab-content" id="myTabContent">                
                 <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="profile-tab">
                     <h3  class="register-heading">Configuración del perfil</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre *" value="{{$response->name}}" />
+                    <form action="" method="POST">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Nombre *" value="{{$response->name}}" required>
+                                </div>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="tel" name="phone" minlength="10" maxlength="10" class="form-control" placeholder="Celular *" value="{{$response->phone}}" required>
+                                </div>     
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email *" value="{{$response->email}}" required>
+                                </div>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                               
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña *" value="{{$response->name}}" />
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name='address' class="form-control" placeholder="Dirección *" value="{{$response->address}}" required>
+                                </div>
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="password" name="pass" class="form-control" placeholder="Contraseña *" required>
+                                </div>
+                                @error('pass')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <div class="form-group">
+                                    <input type="password" name="pass2" class="form-control"  placeholder="Confirmar Contraseña *" required>
+                                </div>
+                                @error('pass2')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <input type="submit" class="btnRegister"  value="Guardar"/>
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="{{$response->name}}"/>
-                            </div> 
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="{{$response->name}}" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="{{$response->name}}"/>
-                            </div>                            
-                            <input type="submit" class="btnRegister"  value="Guardar"/>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div> 

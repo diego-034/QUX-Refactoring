@@ -52,30 +52,51 @@
 
         <div class="contact-us container" style="margin-bottom: 7rem;">
             <h1 class="text-center" style="margin-top: 5rem;">Contáctenos</h1>
+
             <!-- formulario de contactenos-->
             <form action="/" method="POST">
                 @csrf
                 <div class="form-row mt-3">
                     <div class="form-group col-md-6 inputs">
                         <label for="nombres">Nombres</label>
-                        <input type="text" class="form-control border border-dark" name="name" placeholder="Nombre">
-                        <!-- <small *ngIf="nombreNoValido" class="text-danger">Ingrese 3 letras</small> -->
+                        <input type="text" name="name" class="form-control border border-dark" placeholder="Nombre">
                     </div>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
                     <div class="form-group col-md-6 inputs">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control border border-dark" name="lastname" placeholder="Apellido">
+                        <input type="text" name="lastname" class="form-control border border-dark" placeholder="Apellido">
                     </div>
+                    @error('lastname')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
                     <div class="form-group col-md-12 inputs">
                         <label for="apellidos">Asunto</label>
-                        <input type="text" class="form-control border border-dark" name="topic" placeholder="Asunto">
+                        <input type="text" name="affair" class="form-control border border-dark" placeholder="Asunto">
                     </div>
+                    @error('affair')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
                     <div class="form-group col-md-12 inputs">
                         <label for="apellidos">Mensaje</label>
-                        <textarea type="text" class="form-control border border-dark" name="message" rows="6" placeholder="Escriba su mensaje"></textarea>
+                        <textarea type="text" name="message" class="form-control border border-dark" rows="6" placeholder="Escriba su mensaje"></textarea>
                     </div>
+                    @error('message')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                     <div class="form-group col-md-12 text-center">
                         <button type="button" class="btn btn-secondary col-md-2 border border-dark">Enviar</button>
                     </div>
