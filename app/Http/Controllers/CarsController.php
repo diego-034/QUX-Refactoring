@@ -65,7 +65,7 @@ class CarsController extends Controller
                 "car" => $cars,
                 "products"=> DB::table('car_details')
                 ->select('*')
-                ->where('car_id', '=', $car->id)->get();
+                ->where('car_id', '=', $car->id)->get()
             ];
             }
             
