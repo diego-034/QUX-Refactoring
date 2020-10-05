@@ -50,6 +50,7 @@
             </div>
           </div>
          @endcan
+         @can('customer', Auth::user())
          <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -86,7 +87,8 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div> 
+        @endcan       
     </div>
 </div>
 @endsection
