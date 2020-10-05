@@ -11,7 +11,7 @@
             <h3>Bienvenido</h3>
             <p>Configuración del perfil</p>
         </div>
-         @can('admin', Auth::user())
+        @can('admin', Auth::user())
          <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -27,21 +27,21 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre *" value="{{ $response->name }}" />
+                                <input type="text" class="form-control" placeholder="Nombre *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Contraseña *" value="{{ $product->password }}" />
+                                <input type="password" class="form-control" placeholder="Contraseña *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="{{ $product->name }}"/>
+                                <input type="password" class="form-control"  placeholder="Confirmar contraseña *" value="{{$response->name}}"/>
                             </div> 
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="{{ $product->email }}" />
+                                <input type="email" class="form-control" placeholder="Email *" value="{{$response->name}}" />
                             </div>
                             <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="{{ $product->phone }}" />
+                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Celular *" value="{{$response->name}}"/>
                             </div>                            
                             <input type="submit" class="btnRegister"  value="Guardar"/>
                         </div>

@@ -25,7 +25,7 @@
                         @can('admin', Auth::user())
                             <a href="/facturas" class="mr-2"><button type="button" class="btn btn-outline-light">Facturas</button></a>
                         @endcan
-                        <a href="{{ url('perfil') }}"><button type="button" class="btn btn-outline-light">Perfil</button></a>
+                        <a href="/perfil/{{Auth::id()}}"><button type="button" class="btn btn-outline-light">Perfil</button></a>
                     </div>
 
                 @endguest
