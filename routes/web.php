@@ -23,6 +23,12 @@ Route::get('/', function () {
 //     return view('crudBill');
 // });
 
+// Route::get('profile', ['middleware' => 'auth', function()
+// {
+//     // Solo los usuarios autenticados pueden entrar...
+// }]);
+//
+
 Route::get('/perfil', ['middleware' => 'auth', function()
 {
     return view('configUser');}]);
@@ -31,20 +37,16 @@ Route::get('/crearProductos', ['middleware' => 'auth', function()
 {
     return view('addProduct');
 }]);
-// Route::get('profile', ['middleware' => 'auth', function()
-// {
-//     // Solo los usuarios autenticados pueden entrar...
-// }]);
-//
-
-Route::get('/carrito-compras', function () {
-    return view('shoppingCar');
-});
 
 Route::get('/crearFactura', ['middleware' => 'auth', function()
 {
     return view('addBill');
 }]);
+
+Route::get('/carrito-compras', function () {
+    return view('shoppingCar');
+});
+
 
 Auth::routes();
 
