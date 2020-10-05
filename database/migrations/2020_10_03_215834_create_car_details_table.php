@@ -16,13 +16,13 @@ class CreateCarDetailsTable extends Migration
         Schema::create('car_details', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('quantity');
-            $table->decimal('total',12,2);
-            $table->decimal('discount',12,2);
-            $table->decimal('iva',12,2);
-            $table->boolean('state');
+            $table->decimal('total',12,2)->nullable();
+            $table->decimal('discount',12,2)->nullable();
+            $table->decimal('iva',12,2)->nullable();
+            $table->boolean('state')->nullable();
             $table->string('size');
             $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('car_id')->constrained('cars');
+            $table->foreignId('car_id')->constrained('cars')->nullable();
             $table->timestamps();
         });
     }

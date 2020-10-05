@@ -20,35 +20,38 @@ class CarDetailsController extends Controller
     public function store(Request $request)
     {
         try {
-            CarsController::store($request);
+            $carController= new CarsController();
+            $carController->store($request);
             //validaciones de seguridad
-            $validator = Validator::make($request->all(), [
-                'quantity' => 'required|numeric',
-                'product_id' => 'string',
-                //'discount' => 'required|numeric',
-                //'total' => 'required|numeric',
-                //'price' => 'required|numeric',
-                //'IVA' => 'required|numeric',
-                //'discount' => 'required|numeric',
-                //'Estado' => 'required|boolean',
-                'size' => 'string'
-            ]);
+            // $validator = Validator::make($request->all(), [
+            //     'quantity' => 'required|numeric',
+            //     'product_id' => 'string',
+            //     //'discount' => 'required|numeric',
+            //     //'total' => 'required|numeric',
+            //     //'price' => 'required|numeric',
+            //     //'IVA' => 'required|numeric',
+            //     //'discount' => 'required|numeric',
+            //     //'Estado' => 'required|boolean',
+            //     'size' => 'string'
+            // ]);
             //Respuesta de validacion
-            if ($validator->fails()) {
-                return Redirect::action('ProductsController@index');
-            }
+            // if ($validator->fails()) {
+            //     //return Redirect::action('ProductsController@index');
+            // }
             $input = $request->all();
 
-            $input['car_id'] = Request::ip();
+            //$input['car_id'] = Request::ip();
             $input['discount'] = 0;
             $input['total'] = 0;
             $input['iva'] = 0;
+            $car = $request->session()->get('token-car');
+            $input['car_id'] = $car->id;
             //Se crea el registro en la base de datos
             $data = CarDetails::create($input);
             //Respondemos y redireccionamos
-            return Redirect::action('ProductsController@index');
+            //return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
-            return Redirect::action('ProductsController@index');
+            //return Redirect::action('ProductsController@index');
         }
     }
 

@@ -17,7 +17,7 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public static function generate($size)
+    public function generate($size)
     {
         if ($size < 4) {
             $size = 4;
@@ -26,28 +26,23 @@ class CarsController extends Controller
         return bin2hex(random_bytes(($size - ($size % 2)) / 2));
     }
 
-    public static function store(Request $request)
+    public function store(Request $request)
     {
         try {
-            if($request->session()->exists('token-car')){
-                return true;
+            if ($request->session()->exists('token-car')) {
+                return;
             }
-            $token = CarsController::generate(30);
-            $car = DB::table('cars')
-            ->select('*')
-            ->where('token', '=', $token)->get();
+            $token = $this->generate(30);
+
             $input = [];
-            if($car == null){
-                $input['token'] = $token;
-            }
-            
-            
-            //Se crea el registro en la base de datos
+            $input['token'] = $token;
             $data = Cars::create($input);
-            //Respondemos y redireccionamos
-            return true;
+            $request->session()->put('token-car',  $data);
+
+
+            return;
         } catch (Exception $ex) {
-            return false;
+            return;
         }
     }
 
