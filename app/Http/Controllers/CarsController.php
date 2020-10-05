@@ -52,10 +52,17 @@ class CarsController extends Controller
      * @param  \App\Cars  $Cars
      * @return \Illuminate\Http\Response
      */
-    public function show(Cars $Cars, $id)
+    public function show(Request $request)
     {
         try {
-            $cars = Cars::find($id);
+            $cars = null;
+            if ($request->session()->exists('token-car')) {
+                $token =  $request->session()->get('token-car')->id;
+                $cars = DB::table('cars')
+                ->select('*')
+                ->where('token', '=', $token)->get();
+            }
+            
             return view('shoppingCar')->with('response', $cars);
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');

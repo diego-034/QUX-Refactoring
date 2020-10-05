@@ -49,9 +49,9 @@ class CarDetailsController extends Controller
             //Se crea el registro en la base de datos
             $data = CarDetails::create($input);
             //Respondemos y redireccionamos
-            //return Redirect::action('ProductsController@index');
+            return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
-            //return Redirect::action('ProductsController@index');
+            return Redirect::action('ProductsController@index');
         }
     }
 
