@@ -14,7 +14,7 @@
                 <div class="name">Nombre</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="name">
+                            <input class="form-control" value="{{$response->name}}" type="text" name="name" >
                         </div>
                     </div>
                 </div>

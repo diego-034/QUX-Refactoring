@@ -92,7 +92,7 @@ class ProductsController extends Controller
             // ->where('id', '=', $id)->get();
             $product = Products::find($id);
             if(Auth::check() && Auth::user()->user_type == 1){
-                return view('editProduct')->with('response', $products);
+                return view('editProduct')->with('response', $product);
            }
             //Respondemos con los datos consultados
             return view('viewProduct')->with('response', $product);
