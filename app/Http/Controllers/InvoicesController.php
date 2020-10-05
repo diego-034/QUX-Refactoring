@@ -81,7 +81,7 @@ class InvoicesController extends Controller
     {
         try{
             $invoice = Invoices::find($id);
-            return view('crudBill')->with('response', $invoice);
+            return view('editProduct')->with('response', $invoice);
            }catch(Exception $ex){
             return Redirect::action('InvoicesController@index');
            }
