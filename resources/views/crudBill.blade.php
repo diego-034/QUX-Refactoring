@@ -57,27 +57,25 @@ $(document).ready(function(){
 						<th>Estado</th>
 						<th>Cliente</th>
 						<th>Usuario</th>
-						<th>Fecha Creación</th>
-						<th>Fecha Actualización</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
+				@foreach($response as $product)
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $product->total }}</td>
+						<td>{{ $product->total_discount }}</td>
+						<td>{{ $product->total_iva }}</td>
+						<td>{{ $product->state }}</td>
+						<td>{{ $product->client_id }}</td>
+						<td>{{ $product->user_id }}</td>
 						<td>
 							<a href="#" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
 							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
 						</td>
-                    </tr>
+					</tr>
+					@endforeach
 				</tbody>
 			</table>
 			<!-- <div class="clearfix">

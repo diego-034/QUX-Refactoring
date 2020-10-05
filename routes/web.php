@@ -21,9 +21,9 @@ Route::get('/perfil', function () {
     return view('configUser');
 });
 
-Route::get('/facturas', function () {
-    return view('crudBill');
-});
+// Route::get('/facturas', function () {
+//     return view('crudBill');
+// });
 
 Route::get('/configuracion', function () {
     return view('configUser');
@@ -53,4 +53,5 @@ Route::post('/productos', 'ProductsController@store');
 Route::get('/productos/{id}', 'ProductsController@show');
 Route::delete('/productos/{id}', 'ProductsController@destroy');
 Route::post('/productos/actualizar/{id}', 'ProductsController@update');
+Route::get('/facturas', 'InvoicesController@index');
 
