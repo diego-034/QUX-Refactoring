@@ -39,11 +39,6 @@ Route::get('/crearProductos', ['middleware' => 'auth', function()
     return view('addProduct');
 }]);
 
-Route::get('/editarProducto', ['middleware' => 'auth', function()
-{
-    return view('editProduct');
-}]);
-
 Route::get('/crearFactura', ['middleware' => 'auth', function()
 {
     return view('addBill');
@@ -66,5 +61,6 @@ Route::get('/facturas', 'InvoicesController@index');
 Route::get('/perfil/{id}', 'TypesController@show');
 Route::get('/facturas/{id}', 'InvoicesController@show');
 Route::delete('/facturas/{id}', 'InvoicesController@destroy');
+Route::post('/carrito', 'CarDetailsController@store');
 
 

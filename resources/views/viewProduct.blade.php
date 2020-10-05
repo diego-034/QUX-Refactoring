@@ -29,12 +29,12 @@
                             <br>
                             - Secar a la sombra.
                         </p>
-                        <!-- fromulario para añadir al carrito -->
+                        <!-- formulario para añadir al carrito -->
                         <form action="/carrito" method="POST">
                             @csrf
 
                             <p>Color: {{ $response->color }}</p>
-
+                            <input type="hidden" name="product_id" value="{{ $response->id }}">
                             <input class="mb-3 @error('quantity') is-invalid @enderror" type="number" name="quantity" id="quantity" required placeholder="Cantidad" min="0">
                             @error('quantity')
                                     <span class="invalid-feedback" role="alert">
