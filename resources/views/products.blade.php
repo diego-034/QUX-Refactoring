@@ -7,7 +7,7 @@
         <br>
         <div class="card-group" style="width: 50rem;">   
             @foreach($response as $product)
-            <div class="card" style="margin-right: 4rem; border: 1px solid #e1e1e1">
+            <div class="card" style="margin-right: 4rem; border: 1px solid #e1e1e1; width: 1rem;">
                 <img src="https://dafitistaticco-a.akamaihd.net/p/color-siete-1662-32463-1-product.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Nombre: {{ $product->name }}</h5>

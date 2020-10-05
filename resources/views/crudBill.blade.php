@@ -44,7 +44,6 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-6">
 						<a href="{{ url('crearFactura') }}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Agregar Factura</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Eliminar</span></a>						
 					</div>
 				</div>
 			</div>
@@ -70,8 +69,7 @@ $(document).ready(function(){
 						<td>{{ $product->client_id }}</td>
 						<td>{{ $product->user_id }}</td>
 						<td>
-							<a href="#" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+							<a href="/facturas/{{ $product->id }}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
 							<button type="button"  class="delete" onclick="event.preventDefault();if(confirm('¿Estas Seguro?')){document.getElementById('delete-product{{ $product->id}}').submit();};">
 								<i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></button>
 							<form id="delete-product{{  $product->id}}" action="/facturas/{{$product->id}}" method="POST" style="display: none;">

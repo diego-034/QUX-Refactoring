@@ -66,3 +66,4 @@ Route::get('/facturas', 'InvoicesController@index');
 Route::get('/perfil/{id}', 'TypesController@show');
 Route::delete('/facturas/{id}', 'InvoicesController@destroy');
 
+

@@ -8,7 +8,7 @@
             <h2 class="title">Editar Producto</h2>
         </div>
         <div class="card-body">
-            <form action="/productos" method="POST">
+            <form action="/productos/actualizar/{{$response->id}}" method="POST">
             @csrf
             <div class="form-row">
                 <div class="name">Nombre</div>
@@ -28,7 +28,7 @@
                     <div class="name">Descripcion</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="description">
+                            <input class="form-control" value="{{$response->description}}" type="text" name="description">
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="name">Color</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="color">
+                            <input class="form-control" value="{{$response->color}}" type="text" name="color">
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="name">Precio</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="number" name="price">
+                            <input class="form-control" value="{{$response->price}}" type="number" name="price">
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <div class="name">IVA</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="text" name="iva" value="19" disabled placeholder="19">
+                            <input class="form-control" value="{{$response->iva}}" type="text" name="iva" value="19" disabled placeholder="19">
                         </div>
                     </div>
                 </div>
@@ -60,12 +60,12 @@
                     <div class="name">Descuento</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="number" name="discount" min="0">
+                            <input class="form-control" value="{{$response->discount}}" type="number" name="discount" min="0">
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-primary" type="submit">Actualizar</button>
                 </div>
             </form>
         </div>
