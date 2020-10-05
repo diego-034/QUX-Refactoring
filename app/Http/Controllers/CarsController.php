@@ -55,15 +55,21 @@ class CarsController extends Controller
     public function show(Request $request)
     {
         try {
-            $cars = null;
+            $response = null;
             if ($request->session()->exists('token-car')) {
-                $token =  $request->session()->get('token-car')->id;
+                $car =  $request->session()->get('token-car');
                 $cars = DB::table('cars')
                 ->select('*')
-                ->where('token', '=', $token)->get();
+                ->where('token', '=', $car->token)->get();
+                $response= [
+                "car" => $cars,
+                "products"=> DB::table('car_details')
+                ->select('*')
+                ->where('car_id', '=', $car->id)->get();
+            ];
             }
             
-            return view('shoppingCar')->with('response', $cars);
+            return view('shoppingCar')->with('response', $response);
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');
         }
