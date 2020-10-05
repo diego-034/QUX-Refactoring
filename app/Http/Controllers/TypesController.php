@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Types;
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\Redirect;
+use App\User;
+
 
 class TypesController extends Controller
 {
@@ -44,9 +48,17 @@ class TypesController extends Controller
      * @param  \App\Types  $types
      * @return \Illuminate\Http\Response
      */
-    public function show(Types $types)
+    public function show(Types $types, $id)
     {
-        //
+        try {
+            //Consultamos por id los datos mencionadoa abajo
+            
+                $product =  User::find($id);
+            //Respondemos con los datos consultados
+            return view('configUser')->with('response', $product);
+        } catch (Exception $ex) {
+            return Redirect::action('HomeController@index');
+        }
     }
 
     /**
