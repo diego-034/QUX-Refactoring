@@ -62,6 +62,6 @@ Route::get('/perfil/{id}', 'TypesController@show');
 Route::get('/facturas/{id}', 'InvoicesController@show');
 Route::delete('/facturas/{id}', 'InvoicesController@destroy');
 Route::post('/carrito', 'CarDetailsController@store');
-Route::get('/carrito-compras', 'CarContreller@show');
+Route::get('/carrito-compras', 'CarsController@show');
 
 
