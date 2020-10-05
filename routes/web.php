@@ -41,7 +41,7 @@ Route::get('/crearProductos', function () {
     return view('addProduct');
 });
 
-Route::post('/crearFactura', function () {
+Route::get('/crearFactura', function () {
     return view('addBill');
 });
 

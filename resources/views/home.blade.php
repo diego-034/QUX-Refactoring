@@ -23,7 +23,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/productos" class="mr-2"><button type="button" class="btn btn-outline-light">Productos</button></a>
                         @can('admin', Auth::user())
-                            <a href="/" class="mr-2"><button type="button" class="btn btn-outline-light">Pedidos</button></a>
+                            <a href="/facturas" class="mr-2"><button type="button" class="btn btn-outline-light">Facturas</button></a>
                         @endcan
                         <a href="{{ url('perfil') }}"><button type="button" class="btn btn-outline-light">Perfil</button></a>
                     </div>

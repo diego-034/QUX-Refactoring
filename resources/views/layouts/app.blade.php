@@ -57,7 +57,10 @@
                             @can('admin', Auth::user())
                             <!-- Rutas protegidas en el navbar para solo el usuario admin -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('productos') }}">{{ __('Gestión de Facturas') }}</a>
+                                    <a class="nav-link" href="{{ url('productos') }}">{{ __('Gestión de Productos') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('facturas') }}">{{ __('Gestión de Facturas') }}</a>
                                 </li>
                             @endcan
 
