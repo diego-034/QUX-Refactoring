@@ -3,8 +3,11 @@
 
     <!-- Maquetación de una tabla en la que se visualizan los productos a comprar -->
 
-    <div class="" style="width: 1200px; margin: 4rem auto;">
-        <h1 class="mb-4">Carrito de compras</h1>
+    <div class="" style="width: 1200px; margin: 4rem auto 7rem auto;">
+        <div class="d-flex justify-content-between">
+            <h1 class="mb-4">Carrito de compras</h1>
+            <a href="/"><button type="button" class="btn btn-outline-danger">Volver</button></a>
+        </div>
         <div class="table-responsive">
         <table class="table table-responsive-lg table-hover">
             <thead>

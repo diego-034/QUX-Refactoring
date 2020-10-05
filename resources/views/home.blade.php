@@ -7,7 +7,6 @@
         <div class="jumbotron text-center">
             <div class="container">
                     <h1 class="display-4 text-white"><strong>Q-UX</strong></h1>
-                    <p class="text-white"><strong>Diseña Tu Camisa</strong></p>
                 @guest
                     <!-- Parte que ve el usuario no registrado -->
                     
@@ -23,7 +22,9 @@
                     <h3 class="text-white">Bienvenido {{ Auth::user()->name }}</h3>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/productos" class="mr-2"><button type="button" class="btn btn-outline-light">Productos</button></a>
-                        <a href="/" class="mr-2"><button type="button" class="btn btn-outline-light">Pedidos</button></a>
+                        @can('admin', Auth::user())
+                            <a href="/" class="mr-2"><button type="button" class="btn btn-outline-light">Pedidos</button></a>
+                        @endcan
                         <a href="{{ url('perfil') }}"><button type="button" class="btn btn-outline-light">Perfil</button></a>
                     </div>
 
@@ -49,7 +50,7 @@
             <hr class="mt-5">
         </div>
 
-        <div class="contact-us container">
+        <div class="contact-us container" style="margin-bottom: 7rem;">
             <h1 class="text-center" style="margin-top: 5rem;">Contáctenos</h1>
             <!-- formulario de contactenos-->
             <form action="/" method="POST">
