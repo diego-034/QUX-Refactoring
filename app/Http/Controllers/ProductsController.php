@@ -51,11 +51,8 @@ class ProductsController extends Controller
                 'color' => 'required|string',
                 'price' => 'required|numeric',
                 //'IVA' => 'required|numeric',
-                'discount' => 'required|numeric',
+                'discount' => 'required|numeric'
                 //'Estado' => 'required|boolean',
-                'size_s' => 'numeric',
-                'size_m' => 'numeric',
-                'size_l' => 'numeric'
             ]);
             //Respuesta de validacion
             if ($validator->fails()) {
@@ -66,12 +63,13 @@ class ProductsController extends Controller
             $input['image']="Ruta";
             $input['iva']= 0;
             $input['state']= 1;
+            $input['user_id']=1;
             //Se crea el registro en la base de datos
             $data = Products::create($input);
             //Respondemos y redireccionamos
             return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
-            return Redirect::action('ProductsController@index');
+            //return Redirect::action('ProductsController@index');
         }
     }
 
@@ -123,9 +121,6 @@ class ProductsController extends Controller
                 //'IVA' => 'required|numeric',
                 'discount' => 'required|numeric',
                 //'Estado' => 'required|boolean',
-                'size_s' => 'numeric',
-                'size_m' => 'numeric',
-                'size_l' => 'numeric'
             ]);
 
             if ($validator->fails()) {
@@ -136,10 +131,7 @@ class ProductsController extends Controller
             $product->description = $request->get("description");
             $product->color = $request->get("color");
             $product->price = $request->get("price");
-            $product->discount = $request->get("discount");
-            $product->size_s = $request->get("size_s");
-            $product->size_m = $request->get("size_m");
-            $product->size_l = $request->get("size_l");        
+            $product->discount = $request->get("discount");     
             $product->save();
             //Respuesta a vista redirect
             return Redirect::action('ProductsController@index');

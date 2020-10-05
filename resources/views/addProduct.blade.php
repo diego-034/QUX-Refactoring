@@ -8,7 +8,8 @@
             <h2 class="title">Crear nuevo producto</h2>
         </div>
         <div class="card-body">
-            <form method="POST">
+            <form action="/productos" method="POST">
+            @csrf
             <div class="form-row">
                 <div class="name">Nombre</div>
                     <div class="value">
@@ -43,7 +44,7 @@
                     <div class="name">Precio</div>
                     <div class="value">
                         <div class="input-group">
-                            <input class="form-control" type="number" name="precio">
+                            <input class="form-control" type="number" name="price">
                         </div>
                     </div>
                 </div>

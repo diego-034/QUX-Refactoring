@@ -23,9 +23,6 @@ class CreateProductsTable extends Migration
             $table->decimal('price',12,2);
             $table->decimal('iva',12,2);
             $table->decimal('discount',12,2);
-            $table->integer('size_s');
-            $table->integer('size_m');
-            $table->integer('size_l');
             $table->foreignId('user_id')->constrained('users'); 
             $table->timestamps();
         });

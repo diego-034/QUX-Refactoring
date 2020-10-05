@@ -21,9 +21,6 @@ class ProductsSeeder extends Seeder
             'price'=>'123132123',
             'iva'=>'0',
             'discount'=>'0',
-            'size_s'=>'0',
-            'size_m'=>'10',
-            'size_l'=>'10',
             'user_id'=>'1'
         ],
         ['name'=>'Camisa Larga',
@@ -34,9 +31,6 @@ class ProductsSeeder extends Seeder
             'price'=>'123132123',
             'iva'=>'0',
             'discount'=>'0',
-            'size_s'=>'0',
-            'size_m'=>'10',
-            'size_l'=>'10',
             'user_id'=>'1'
             ]
         );
