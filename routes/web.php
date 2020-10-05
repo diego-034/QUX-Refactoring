@@ -38,6 +38,11 @@ Route::get('/crearProductos', ['middleware' => 'auth', function()
     return view('addProduct');
 }]);
 
+Route::get('/editarProducto', ['middleware' => 'auth', function()
+{
+    return view('editProduct');
+}]);
+
 Route::get('/crearFactura', ['middleware' => 'auth', function()
 {
     return view('addBill');

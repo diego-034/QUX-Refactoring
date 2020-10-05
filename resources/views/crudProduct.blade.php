@@ -67,7 +67,7 @@ $(document).ready(function(){
 							<td>{{ $product->price }}</td>
 							<td>
 								<a href="#" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+								<a href="{{ url('editarProducto') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
 								<button type="button"  class="delete" onclick="event.preventDefault();if(confirm('¿Estas Seguro?')){document.getElementById('delete-product{{ $product->id}}').submit();};
                                                      "><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></button>
 								<form id="delete-product{{  $product->id}}" action="/productos/{{$product->id}}" method="POST" style="display: none;">
