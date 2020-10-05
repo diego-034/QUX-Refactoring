@@ -17,33 +17,34 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/perfil', function () {
-    return view('configUser');
-});
+
 
 // Route::get('/facturas', function () {
 //     return view('crudBill');
 // });
 
-Route::get('/configuracion', function () {
-    return view('configUser');
-});
+Route::get('/perfil', ['middleware' => 'auth', function()
+{
+    return view('configUser');}]);
+
+Route::get('/crearProductos', ['middleware' => 'auth', function()
+{
+    return view('addProduct');
+}]);
+// Route::get('profile', ['middleware' => 'auth', function()
+// {
+//     // Solo los usuarios autenticados pueden entrar...
+// }]);
+//
 
 Route::get('/carrito-compras', function () {
     return view('shoppingCar');
 });
 
-Route::get('/gestionarProductos', function () {
-    return view('crudProduct');
-});
-
-Route::get('/crearProductos', function () {
-    return view('addProduct');
-});
-
-Route::get('/crearFactura', function () {
+Route::get('/crearFactura', ['middleware' => 'auth', function()
+{
     return view('addBill');
-});
+}]);
 
 Auth::routes();
 
