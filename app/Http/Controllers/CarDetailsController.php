@@ -4,28 +4,12 @@ namespace App\Http\Controllers;
 
 use App\CarDetails;
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class CarDetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +19,36 @@ class CarDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            //validaciones de seguridad
+            $validator = Validator::make($request->all(), [
+                'quantity' => 'required|numeric',
+                'product_id' => 'string',
+                //'discount' => 'required|numeric',
+                //'total' => 'required|numeric',
+                //'price' => 'required|numeric',
+                //'IVA' => 'required|numeric',
+                //'discount' => 'required|numeric',
+                //'Estado' => 'required|boolean',
+                'size' => 'string'
+            ]);
+            //Respuesta de validacion
+            if ($validator->fails()) {
+                return Redirect::action('ProductsController@index');
+            }
+            $input = $request->all();
+
+            $input['car_id'] = Request::ip();
+            $input['discount'] = 0;
+            $input['total'] = 0;
+            $input['iva'] = 0;
+            //Se crea el registro en la base de datos
+            $data = CarDetails::create($input);
+            //Respondemos y redireccionamos
+            return Redirect::action('ProductsController@index');
+        } catch (Exception $ex) {
+            return Redirect::action('ProductsController@index');
+        }
     }
 
     /**

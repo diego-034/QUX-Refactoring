@@ -11,23 +11,6 @@ use Illuminate\Support\Facades\Redirect;
 class CarsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        try {
-            //Obtener datos con Model::all();
-            $cars = Cars::all();
-            //Retornar vista con datos en variable $response
-            return view('crudBill')->with('response', $cars);
-        } catch (Exception $ex) {
-            return view('crudBill')->with('response', null);
-        }
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -75,9 +58,9 @@ class CarsController extends Controller
     {
         try{
             $cars = Cars::find($id);
-            return view('crudBill')->with('response', $cars);
+            return view('shoppingCar')->with('response', $cars);
            }catch(Exception $ex){
-            return Redirect::action('CarsController@index');
+            return Redirect::action('ProductsController@index');
            }
     }
 
@@ -110,7 +93,7 @@ class CarsController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return Redirect::action('CarsController@index');
+                return Redirect::action('ProductsController@index');
             }  
             
             $cars->total = 0;
@@ -121,9 +104,9 @@ class CarsController extends Controller
             $cars->client_id = Request::ip();    
             $cars->save();
             //Respuesta a vista redirect
-            return Redirect::action('CarsController@index');
+            return Redirect::action('ProductsController@index');
         }catch(Exception $ex) {
-            return Redirect::action('CarsController@index');
+            return Redirect::action('ProductsController@index');
         }
     }
 
@@ -138,12 +121,12 @@ class CarsController extends Controller
         try {
             $cars = Cars::find($id);
             if ($cars == null) {
-                return Redirect::action('CarsController@index');
+                return Redirect::action('ProductsController@index');
             }
             Cars::destroy($cars['id']);
-            return Redirect::action('CarsController@index');
+            return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
-            return Redirect::action('CarsController@index');
+            return Redirect::action('ProductsController@index');
         }
     }
 }
