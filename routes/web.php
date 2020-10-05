@@ -57,4 +57,4 @@ Route::get('/productos/{id}', 'ProductsController@show');
 Route::delete('/productos/{id}', 'ProductsController@destroy');
 Route::post('/productos/actualizar/{id}', 'ProductsController@update');
 Route::get('/facturas', 'InvoicesController@index');
-Route::get('/perfil', 'TypesController@show');
+Route::get('/perfil/{id}', 'TypesController@show');
