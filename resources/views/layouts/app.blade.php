@@ -37,10 +37,10 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('carrito-compras') }}">{{ __('Carrito de compras') }}</a>
+                                <a class="nav-link"href="{{ url('productos') }}">{{ __('Productos') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"href="{{ url('productos') }}">{{ __('Productos') }}</a>
+                                <a class="nav-link" href="{{ url('carrito-compras') }}">{{ __('Carrito de compras') }}</a>
                             </li>
 
                             <li class="nav-item">
