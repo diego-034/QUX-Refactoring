@@ -85,7 +85,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesión') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('perfil') }}">
+                                    <a class="dropdown-item" href="/perfil/{{Auth::id()}}">
                                          Perfil 
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
