@@ -16,10 +16,10 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->decimal('total',12,2);
-            $table->decimal('total_discount',12,2);
-            $table->decimal('total_iva',12,2);
-            $table->boolean('state');
+            $table->decimal('total',12,2)->nullable();
+            $table->decimal('total_discount',12,2)->nullable();
+            $table->decimal('total_iva',12,2)->nullable();
+            $table->boolean('state')->nullable();
             $table->string('token')->unique();
         });
     }

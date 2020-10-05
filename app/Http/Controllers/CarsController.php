@@ -26,18 +26,21 @@ class CarsController extends Controller
         return bin2hex(random_bytes(($size - ($size % 2)) / 2));
     }
 
-    public static function store()
+    public static function store(Request $request)
     {
         try {
-            if(){
-
+            if($request->session()->exists('token-car')){
+                return true;
             }
             $token = CarsController::generate(30);
-            $input = [];
-            $product = DB::table('products')
+            $car = DB::table('cars')
             ->select('*')
             ->where('token', '=', $token)->get();
-            $input['token'] = $token;
+            $input = [];
+            if($car == null){
+                $input['token'] = $token;
+            }
+            
             
             //Se crea el registro en la base de datos
             $data = Cars::create($input);

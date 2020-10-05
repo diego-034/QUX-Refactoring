@@ -20,7 +20,7 @@ class CarDetailsController extends Controller
     public function store(Request $request)
     {
         try {
-            CarsController::store();
+            CarsController::store($request);
             //validaciones de seguridad
             $validator = Validator::make($request->all(), [
                 'quantity' => 'required|numeric',
