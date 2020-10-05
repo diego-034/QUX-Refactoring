@@ -43,6 +43,8 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         try {
+            $this->middleware('auth');
+           
             //validaciones de seguridad
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
