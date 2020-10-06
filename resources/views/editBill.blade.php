@@ -22,7 +22,10 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>(Cantidad: {{ $product->name }})</input>
+                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>(Cantidad: {{ $product->quantity }})</input>
+                </div>
+                <div class="form-row">
+                    <input type="number" value="{{ $product->price }}" name="price" class="company" id="company" placeholder="Costo" required>(Precio: {{ $product->price }})</input>
                 </div>
                 @endforeach
             </div>
