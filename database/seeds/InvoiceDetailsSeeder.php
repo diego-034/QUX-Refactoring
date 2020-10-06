@@ -33,6 +33,17 @@ class InvoiceDetailsSeeder extends Seeder
                 "product_id"=> "1",
                 "invoice_id"=> "2"
             ]
+            ,
+            [
+                'quantity' => '2',
+                'total' => '30000',
+                'discount' => '0',
+                'iva' => "0",
+                'state' => "1",
+                'size' => "l",
+                "product_id"=> "3",
+                "invoice_id"=> "2"
+            ]
         );
         DB::table('invoice_details')->insert($data);
     }

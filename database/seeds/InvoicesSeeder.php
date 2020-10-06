@@ -22,7 +22,7 @@ class InvoicesSeeder extends Seeder
                 'user_id' => "1"
             ],
             [
-                'total' => '100000',
+                'total' => '130000',
                 'total_discount' => '0',
                 'total_iva' => '0',
                 'state' => "1",

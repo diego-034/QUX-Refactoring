@@ -21,8 +21,8 @@ class CreateInvoiceDetailsTable extends Migration
             $table->decimal('iva',12,2);
             $table->boolean('state');
             $table->string('size');
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('invoice_id')->constrained('invoices');
+            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('invoice_id')->constrained('invoices')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

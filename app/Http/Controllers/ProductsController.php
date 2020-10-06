@@ -14,16 +14,20 @@ use Illuminate\Support\Facades\Auth;
 class ProductsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar todos los productos
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         try {
-            //Obtener datos con Model::all();
+            /**
+             * Obtener datos con Model::all();
+             */
             $products = Products::all();
-            //Retornar vista con datos en variable $response
+            /**
+             * Retornar vista con datos en variable $response
+             */
             if(Auth::check() && Auth::user()->user_type == 1){
                  return view('crudProduct')->with('response', $products);
             }
@@ -35,7 +39,7 @@ class ProductsController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * Crear un nuevo Producto
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -45,7 +49,9 @@ class ProductsController extends Controller
         try {
             $this->middleware('auth');
            
-            //validaciones de seguridad
+            /**
+             * validaciones de seguridad
+             */
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
                 //'Imagen' => 'string',
@@ -56,7 +62,9 @@ class ProductsController extends Controller
                 'discount' => 'required|numeric'
                 //'Estado' => 'required|boolean',
             ]);
-            //Respuesta de validacion
+            /**
+             * Respuesta de validacion
+             */
             if ($validator->fails()) {
                 return Redirect::action('ProductsController@index');
             }
@@ -66,17 +74,21 @@ class ProductsController extends Controller
             $input['iva']= 0;
             $input['state']= 1;
             $input['user_id']=1;
-            //Se crea el registro en la base de datos
+            /**
+             * Se crea el registro en la base de datos
+             */
             $data = Products::create($input);
-            //Respondemos y redireccionamos
+            /**
+             * Respondemos y redireccionamos
+             */
             return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
-            //return Redirect::action('ProductsController@index');
+            return Redirect::action('ProductsController@index');
         }
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar un producto en especifico
      *
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
@@ -84,7 +96,9 @@ class ProductsController extends Controller
     public function show(Products $products,$id)
     {
         try {
-            //Consultamos por id los datos mencionadoa abajo
+            /**
+             * Consultamos por id  el producto por el metodo find()
+             */
             // $product = DB::table('products')
             // ->select('id', 'name',
             // 'description','color','price','iva',
@@ -102,10 +116,11 @@ class ProductsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualizamos el producto
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Products  $products
+     * @param  Integer  $id Identificador pasado por url
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Products $products,$id)
@@ -116,7 +131,11 @@ class ProductsController extends Controller
             if ($product == null) {
                 return Redirect::action('ProductsController@index');
             }
-            //Validaciones 
+            /**
+             * Validaciones 
+             * Para comprender mejor el Framework se recomienda aprenderlo primero
+             * :)
+             */
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
                 //'Imagen' => 'string',
@@ -146,9 +165,10 @@ class ProductsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar el producto con id pasado por url
      *
      * @param  \App\Products  $products
+     * @param  Integer  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Products $products,$id)

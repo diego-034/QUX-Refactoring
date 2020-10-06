@@ -21,8 +21,8 @@ class CreateCarDetailsTable extends Migration
             $table->decimal('iva',12,2)->nullable();
             $table->boolean('state')->nullable();
             $table->string('size');
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('car_id')->constrained('cars')->nullable();
+            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('car_id')->constrained('cars')->nullable()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
