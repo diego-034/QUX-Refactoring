@@ -60,7 +60,7 @@ $(document).ready(function(){
 					</tr>
 				</thead>
 				<tbody>
-				 <!-- $response trae la información del producto, con $product la mostramos -->
+				<!-- $response trae la información del producto, con $product la mostramos -->
 				@foreach($response as $product)
 					<tr>
 						<td>{{ $product->total }}</td>
@@ -82,7 +82,7 @@ $(document).ready(function(){
 							</form>
 						</td>
 					</tr>
-					@endforeach
+				@endforeach 
 				</tbody>
 			</table>
 		</div>
