@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Correr Seeders a DB
      *
      * @return void
      */
@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeeder::class);
         $this->call(ProductsSeeder::class);
         $this->call(InvoicesSeeder::class);
+        $this->call(InvoiceDetailsSeeder::class);
     }
 }

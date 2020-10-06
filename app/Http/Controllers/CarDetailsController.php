@@ -12,43 +12,41 @@ class CarDetailsController extends Controller
 {
 
     /**
-     * Store a newly created resource in storage.
+     * Crear un nuevo registro de detalles del carrito en la DB
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request o peticion http
+     * @return \Illuminate\Http\Response Utilizamos Redirect para retornar una 
+     *                                   accion de redireccion  a otra pestaña
+     *                                      
      */
     public function store(Request $request)
     {
         try {
-            $carController= new CarsController();
+            /**
+             * Creamos un objeto de CarsController y llamamos el metodo
+             * store para crear un carrito en la base de datos
+             */
+            $carController = new CarsController();
             $carController->store($request);
-            //validaciones de seguridad
-            // $validator = Validator::make($request->all(), [
-            //     'quantity' => 'required|numeric',
-            //     'product_id' => 'string',
-            //     //'discount' => 'required|numeric',
-            //     //'total' => 'required|numeric',
-            //     //'price' => 'required|numeric',
-            //     //'IVA' => 'required|numeric',
-            //     //'discount' => 'required|numeric',
-            //     //'Estado' => 'required|boolean',
-            //     'size' => 'string'
-            // ]);
-            //Respuesta de validacion
-            // if ($validator->fails()) {
-            //     //return Redirect::action('ProductsController@index');
-            // }
+            /**
+             * Obteneos el request y añadimos campos estaticos para poder 
+             * registrar en DB
+             */
             $input = $request->all();
-
-            //$input['car_id'] = Request::ip();
             $input['discount'] = 0;
             $input['total'] = 0;
             $input['iva'] = 0;
+            /**
+             * Obtenemos el carrito ya creado que se guardo es la session token-car
+             * y seteamos el id del carrito de $input
+             */
             $car = $request->session()->get('token-car');
             $input['car_id'] = $car->id;
-            //Se crea el registro en la base de datos
+            /**
+             * Creamos el carrito con el metodo estatico create()
+             * Respondemos y redireccionamos
+             */
             $data = CarDetails::create($input);
-            //Respondemos y redireccionamos
             return Redirect::action('ProductsController@index');
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');

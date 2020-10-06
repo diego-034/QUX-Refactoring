@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class CarsController extends Controller
 {
+
     /**
-     * Store a newly created resource in storage.
+     * Función generate que crea token aleatorio
+     * para identificar el carrito
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param   Integer $size Integer con la lognitud deseada del token
+     * @return  String $token String con el token
      */
     public function generate($size)
     {
@@ -26,20 +28,34 @@ class CarsController extends Controller
         return bin2hex(random_bytes(($size - ($size % 2)) / 2));
     }
 
+    /**
+     * Metodo para crear el carrito
+     *
+     * @param  \Illuminate\Http\Request  $request que viene de CarDetailsController
+     */
     public function store(Request $request)
     {
         try {
+            /**
+             * Validacion de si ya existe una sesion con token adentro
+             * para no crear una nueva sesion con un nuevo token
+             */
             if ($request->session()->exists('token-car')) {
                 return;
             }
+            /**
+             * Llamado a la funcion generate();
+             */
             $token = $this->generate(30);
-
+            /**
+             * Seteo de campo token en $input
+             * creacion de Carrito con metodo estatico store()
+             * creacion de la session 'token-car' 
+             */
             $input = [];
             $input['token'] = $token;
             $data = Cars::create($input);
             $request->session()->put('token-car',  $data);
-
-
             return;
         } catch (Exception $ex) {
             return;
@@ -47,16 +63,24 @@ class CarsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar carrito con todos sus detalles de carrito o items del carrito
      *
-     * @param  \App\Cars  $Cars
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
     {
         try {
+            /**
+             * Validacion de si existe una sesion de carrito ya creada
+             */
             $response = null;
             if ($request->session()->exists('token-car')) {
+                /**
+                 * si ya existe consultamos los datos de la DB
+                 * Datos = (Carrito, Items Agregados al carrito)
+                 * Devolvemos a la vista con la variable $response
+                 */
                 $car =  $request->session()->get('token-car');
 
                 $products =  DB::table('car_details')->join(
@@ -69,10 +93,6 @@ class CarsController extends Controller
                     'car_details.*'
                 ])->where('car_details.car_id', '=', $car->id)->get();
 
-                // DB::table('car_details')
-                // ->select('*')
-                // ->where('car_id', '=', $car->id)->get()
-
                 $cars = DB::table('cars')
                     ->select('*')
                     ->where('token', '=', $car->token)->get();
@@ -81,7 +101,10 @@ class CarsController extends Controller
                     "products" => $products
                 ];
             }
-
+            /**
+             * Se retorna la vista con la variable $response 
+             * para usarla en la vista
+             */
             return view('shoppingCar')->with('response', $response);
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');
@@ -89,16 +112,18 @@ class CarsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza rel carrito de compras
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cars  $Cars
+     * @param  \App\Cars  $Cars Modelo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Cars $cars, $id)
     {
         try {
-
+            /**
+             * NOTA: Esta parte esta en desarrollo aún IMPORTANTE
+             */
             $cars = Cars::find($id);
             if ($cars == null) {
                 return Redirect::action('CarsController@index');
@@ -135,13 +160,16 @@ class CarsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar el carrito
      *
      * @param  \App\Cars  $Cars
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cars $cars, $id)
     {
+        /**
+         * NOTA: Esta parte esta en desarrollo aún IMPORTANTE
+         */
         try {
             $cars = Cars::find($id);
             if ($cars == null) {

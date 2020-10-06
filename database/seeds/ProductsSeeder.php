@@ -18,7 +18,7 @@ class ProductsSeeder extends Seeder
             'description'=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quidem laudantium aliquid quibusdam. Commodi ipsa, natus tempora ipsum provident tempore possimus corrupti numquam omnis quibusdam mollitia, aut in maxime vel!',
             'state'=> 1,
             'color'=>'Negro',
-            'price'=>'123132123',
+            'price'=>'50000',
             'iva'=>'0',
             'discount'=>'0',
             'user_id'=>'1'
@@ -28,7 +28,7 @@ class ProductsSeeder extends Seeder
             'description'=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quidem laudantium aliquid quibusdam. Commodi ipsa, natus tempora ipsum provident tempore possimus corrupti numquam omnis quibusdam mollitia, aut in maxime vel!',
             'state'=> 1,
             'color'=>'Azul',
-            'price'=>'123132123',
+            'price'=>'25000',
             'iva'=>'0',
             'discount'=>'0',
             'user_id'=>'1'

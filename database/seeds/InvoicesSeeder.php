@@ -14,7 +14,7 @@ class InvoicesSeeder extends Seeder
     {
         $data = array(
             [
-                'total' => '100000',
+                'total' => '50000',
                 'total_discount' => '0',
                 'total_iva' => '0',
                 'state' => "1",
