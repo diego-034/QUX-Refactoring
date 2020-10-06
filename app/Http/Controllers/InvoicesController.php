@@ -79,9 +79,28 @@ class InvoicesController extends Controller
      */
     public function show(Invoices $invoices,$id)
     {
-        try{
+        try{ 
+            $response = null;
             $invoice = Invoices::find($id);
-            return view('editBill')->with('response', $invoice);
+            if ($invoice != null) {
+
+                $products =  DB::table('invoice_details')->join(
+                    'products',
+                    'invoice_details.product_id',
+                    '=',
+                    'products.id'
+                )->select([
+                    'products.*',
+                    'invoice_details.*'
+                ])->where('invoice_details.invoice_id', '=', $invoice->id);
+                $response = [
+                    "invoice" => $invoice,
+                    "products" => $products
+                ];
+            }
+
+           
+            return view('editBill')->with('response', $response);
            }catch(Exception $ex){
             return Redirect::action('InvoicesController@index');
            }
