@@ -5,7 +5,9 @@
     <h1 class="text-center" style="text-transform: uppercase; margin-top: 4rem">Productos</h1>
     <div class="d-flex" style="width: 1100px; margin: 4rem auto;">
         <br>
-        <div class="card-columns" >   
+        <div class="card-columns" > 
+            <!-- recorremos $response que es la información que se nos esta enviando
+            y  la añadimos a product -->  
             @foreach($response as $product)
             <div class="card" style="border: 1px solid #e1e1e1;">
                 <img src="https://dafitistaticco-a.akamaihd.net/p/color-siete-1662-32463-1-product.jpg" class="card-img-top" alt="...">

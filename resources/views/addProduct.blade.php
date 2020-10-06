@@ -8,7 +8,7 @@
             <h2 class="title">Crear nuevo producto</h2>
         </div>
         <div class="card-body">
-            <!-- Creación de productos -->
+            <!-- formulario de creación de productos -->
             <form action="/productos" method="POST">
             @csrf
             <div class="form-row">
@@ -68,7 +68,7 @@
                 <div>
                     <button class="btn btn-primary" type="submit">Guardar</button>
                 </div>
-            </form>
+            </form> <!-- fin formulario de crear producto -->
         </div>
         <!-- final card-body -->
     </div>

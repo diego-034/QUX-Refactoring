@@ -61,6 +61,7 @@
                         <label for="nombres">Nombres</label>
                         <input type="text" name="name" class="form-control border border-dark" placeholder="Nombre">
                     </div>
+                    <!-- Validación de errores -->
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

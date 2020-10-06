@@ -58,7 +58,7 @@ $(document).ready(function(){
 					</tr>
 				</thead>
 				<tbody>
-					<!-- Guardamos en product la información a mostrar -->
+					<!-- Response es la información enviada a esta vista, la guardamos en product y la mostramos -->
 					@foreach($response as $product)
 						<tr>
 							<td>{{ $product->name }}</td>

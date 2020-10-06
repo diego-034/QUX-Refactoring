@@ -8,6 +8,7 @@
             <h1 class="mb-4">Carrito de compras</h1>
             <a href="/"><button type="button" class="btn btn-outline-danger">Volver</button></a>
         </div>
+        <!-- Si ecuentra información la muestra en la tabla --> 
         @if($response != null)
             <div class="table-responsive">
                 <table class="table table-responsive-lg table-hover">
@@ -21,6 +22,8 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Recorremos $response en la posisión productos, 
+                        lo añadimos a $product y mostramos su contenido -->
                         @foreach($response['products'] as $product)
                             <tr>
                                 <th scope="row" class="d-flex align-items-center">
