@@ -6,21 +6,21 @@
         <form class="form-detail" action="#" method="post" id="myform" style="margin: 0;">
             <div class="form-left">
                 <h2>Información del producto</h2>                
+                @foreach($response['products'] as $product)
                 <div class="form-group">
                     <div class="form-row form-row-1">
                         <select>
-                            <option disabled selected>seleccione</option>
-                            <option>1</option>
-                            <option>1</option>
+                            <option selected disabled value="{{ $product->name }}"></option>
                         </select> 
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="number" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>
+                        <input type="number" value="{{ $product->size }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="number" name="company" class="company" id="company" placeholder="Cantidad" required>
+                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required>
                 </div>
+                @endforeach
             </div>
 
             <div class="form-right">

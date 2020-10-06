@@ -8,11 +8,7 @@
                 <h2>Información del producto</h2>                
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                        <select>
-                            <option disabled selected>seleccione</option>
-                            <option>1</option>
-                            <option>1</option>
-                        </select> 
+                        <input type="text" name="street" class="street" id="street" placeholder="Producto" required>
                     </div>
                     <div class="form-row form-row-2">
                         <input type="number" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>
