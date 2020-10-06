@@ -1,12 +1,16 @@
-<link href="{{ asset('css/addBill.css') }}" rel="stylesheet">
+<!-- linkeo del css -->
+<link href="{{ asset('css/addBill.css') }}" rel="stylesheet"> 
+<!-- Editar facturas -->
 @extends('layouts.app')
 @section('content')
+<!-- contenido de la pagina -->
 <div class="page-content">
     <div class="form-v10-content">
         <form class="form-detail" action="#" method="post" id="myform" style="margin: 0;">
             <div class="form-left">
                 <h2>Información del producto</h2>   
-                             
+                <!-- For para llenar los productos de cada factura  -->
+                <!-- Detalles del producto -->
                 @foreach($response['products'] as $product)
                 <div class="form-group">
                     <div class="form-row form-row-1">
@@ -22,7 +26,7 @@
                 </div>
                 @endforeach
             </div>
-
+            <!-- Detalles de la factura -->
             <div class="form-right">
                 <h2>Detalles de la factura</h2>
                 <div class="form-row">

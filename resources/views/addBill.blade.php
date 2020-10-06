@@ -1,11 +1,15 @@
+<!-- linkeo del css -->
 <link href="{{ asset('css/addBill.css') }}" rel="stylesheet">
+<!-- Agregar facturas -->
 @extends('layouts.app')
 @section('content')
+<!-- contenido de la pagina -->
 <div class="page-content">
     <div class="form-v10-content">
         <form class="form-detail" action="#" method="post" id="myform" style="margin: 0;">
             <div class="form-left">
-                <h2>Información del producto</h2>                
+                <h2>Información del producto</h2>
+                <!-- Detalles del producto -->
                 <div class="form-group">
                     <div class="form-row form-row-1">
                         <input type="text" name="street" class="street" id="street" placeholder="Producto" required>
@@ -19,6 +23,7 @@
                 </div>
             </div>
 
+            <!-- Detalles de la factura -->
             <div class="form-right">
                 <h2>Detalles de la factura</h2>
                 <div class="form-row">
