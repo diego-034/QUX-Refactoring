@@ -10,15 +10,15 @@
                 @foreach($response['products'] as $product)
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                    <input type="text" value="{{ $product->name }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required disabled>
+                    <input type="text" value="{{ $product->name }}" name="last_name" id="last_name" class="input-text" placeholder="Producto" required disabled>(Producto: {{ $product->name }})</input>
 
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="text" value="{{ $product->size }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required disabled>
+                        <input type="text" value="{{ $product->size }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required disabled>(Talla: {{ $product->size }})</input>
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>
+                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>(Cantidad: {{ $product->name }})</input>
                 </div>
                 @endforeach
             </div>
@@ -41,9 +41,9 @@
                         <input type="text" name="state" class="code" id="state" placeholder="Estado" value="{{$response['invoice']->state}}" required disabled>
                     </div>
                 </div>
-                <div class="form-row-last">
+                <!-- <div class="form-row-last">
                     <input type="submit" name="register" class="register" value="Guardar">
-                </div>
+                </div> -->
             </div>
         </form>
     </div>
