@@ -47,7 +47,7 @@
                             <td class="table-dark" style="text-transform: uppercase; font-size: 17px;">Total</td>
                             <td class="table-dark"> ${{ $response['car'][0]->total }}</td>
                             <td class="table-dark" colspan="3">
-                                <button type="button" class="btn btn-outline-success">Comprar</button>
+                                <button href="{{ url('/registrar/carrito') }}" type="button" class="btn btn-outline-success">Comprar</button>
                             </td class="table-dark"></td>
                         </tr>
                     </tfoot>
