@@ -48,15 +48,16 @@ class InvoicesController extends Controller
                 $invoice =  $request->session()->get('token-car');
                 $invoice['user_id'] = 1;
                 $invoice['client_id'] = Auth::id();
-                $data = Invoices::create($invoice);
+                $data = Invoices::create([]);
                 $products =  DB::table('car_details')
                     ->select(['*'])
                     ->where('car_id', '=', $invoice->id)->get();
 
-                foreach ($products as $product) {
-                    $product['invoice_id'] = $data->id;
-                }
-                InvoiceDetails::create($products);
+                // foreach ($products as $product) {
+                //     $product['invoice_id'] = $data->id;
+                //     InvoiceDetails::create($product);
+                // }
+                
             }
 
             //Respondemos y redireccionamos
