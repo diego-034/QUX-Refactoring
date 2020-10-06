@@ -19,16 +19,15 @@ Route::get('/', function () {
 Route::post('/', 'ProductsController@email');
 
 
-
-// Route::get('/facturas', function () {
-//     return view('crudBill');
-// });
-
-// Route::get('profile', ['middleware' => 'auth', function()
-// {
-//     // Solo los usuarios autenticados pueden entrar...
-// }]);
-//
+/**
+ * 
+ * Rutas protegidas por sistema de autenticación
+ * 1. perfil de usuario (Todos los usuarios registrados).
+ * 2. crear producto (Usuario registrado como administrador).
+ * 3. crear factura (Usuario registrado como administrador).
+ * 
+ * retorna las vistas asignadas que coincidan en la carperta views
+*/
 
 Route::get('/perfil', ['middleware' => 'auth', function()
 {
@@ -44,13 +43,15 @@ Route::get('/crearFactura', ['middleware' => 'auth', function()
     return view('addBill');
 }]);
 
-// Route::get('/carrito-compras', function () {
-//     return view('shoppingCar');
-// });
-
 
 Auth::routes();
 
+/**
+ * 
+ * Rutas con sus respectivos controladores
+ * @param {id} => estos son parámetros de ruta.
+ * 
+*/
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos', 'ProductsController@index');
 Route::post('/productos', 'ProductsController@store');

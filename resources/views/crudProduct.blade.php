@@ -46,10 +46,10 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
+			<!-- Inicio de tabla -->
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						
 						<th>Nombre</th>
 						<th>Descripción</th>
 						<th>Color</th>
@@ -58,6 +58,7 @@ $(document).ready(function(){
 					</tr>
 				</thead>
 				<tbody>
+					<!-- Guardamos en product la información a mostrar -->
 					@foreach($response as $product)
 						<tr>
 							<td>{{ $product->name }}</td>
@@ -79,40 +80,8 @@ $(document).ready(function(){
 					@endforeach
 				</tbody>
 			</table>
-			<!-- <div class="clearfix">
-				<div class="hint-text">Showing <b>0</b> out of <b>0</b> entries</div>
-				<ul class="pagination">
-					<li class="page-item disabled"><a href="#">Previous</a></li>
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div> -->
+			<!-- fin tabla -->
 		</div>
 	</div>        
-</div>
-<!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form >
-				<div class="modal-header">						
-					<h4 class="modal-title">Eliminar Producto</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">					
-					<p>¿Estás seguro que quieres eliminar este producto?</p>
-					<p class="text-warning"><small>Está acción no se puede deshacer.</small></p>
-				</div>
-				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-					<input type="submit" class="btn btn-danger" value="Eliminar">
-				</div>
-			</form>
-		</div>
-	</div>
 </div>
 @endsection

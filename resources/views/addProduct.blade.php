@@ -8,6 +8,7 @@
             <h2 class="title">Crear nuevo producto</h2>
         </div>
         <div class="card-body">
+            <!-- Creación de productos -->
             <form action="/productos" method="POST">
             @csrf
             <div class="form-row">
@@ -69,6 +70,7 @@
                 </div>
             </form>
         </div>
+        <!-- final card-body -->
     </div>
 </div>
 </div>
