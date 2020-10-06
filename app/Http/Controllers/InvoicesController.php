@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Invoices;
+use App\InvoiceDetails;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +17,7 @@ class InvoicesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -42,28 +44,21 @@ class InvoicesController extends Controller
     public function store(Request $request)
     {
         try {
-            //validaciones de seguridad
-            $validator = Validator::make($request->all(), [
-                'total' => 'required|numeric',
-                //'Imagen' => 'string',
-                'total_discount' => 'required|numeric',
-                'total_iva' => 'required|numeric',
-                'price' => 'required|numeric',
-                //'IVA' => 'required|numeric',
-                'discount' => 'required|numeric',
-                //'Estado' => 'required|boolean',
-                'client_id' => 'numeric'
-            ]);
-            //Respuesta de validacion
-            if ($validator->fails()) {
-                return Redirect::action('InvoicesController@index');
-            }
-            $input = $request->all();
+            if ($request->session()->exists('token-car')) {
+                $invoice =  $request->session()->get('token-car');
+                $invoice['user_id'] = 1;
+                $invoice['client_id'] = Auth::id();
+                $data = Invoices::create($invoice);
+                $products =  DB::table('car_details')
+                    ->select(['*'])
+                    ->where('car_id', '=', $invoice->id)->get();
 
-           
-            $input['user_id'] = 1;
-            //Se crea el registro en la base de datos
-            $data = Invoices::create($input);
+                foreach ($products as $product) {
+                    $product['invoice_id'] = $data->id;
+                }
+                InvoiceDetails::create($products);
+            }
+
             //Respondemos y redireccionamos
             return Redirect::action('InvoicesController@index');
         } catch (Exception $ex) {
@@ -77,9 +72,9 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoices $invoices,$id)
+    public function show(Invoices $invoices, $id)
     {
-        try{ 
+        try {
             $response = null;
             $invoice = Invoices::find($id);
             if ($invoice != null) {
@@ -99,11 +94,11 @@ class InvoicesController extends Controller
                 ];
             }
 
-           
+
             return view('editBill')->with('response', $response);
-           }catch(Exception $ex){
+        } catch (Exception $ex) {
             return Redirect::action('InvoicesController@index');
-           }
+        }
     }
 
     /**
@@ -136,18 +131,18 @@ class InvoicesController extends Controller
 
             if ($validator->fails()) {
                 return Redirect::action('InvoicesController@index');
-            }  
-            
+            }
+
             $invoices->total = $request->get("total");
             $invoices->total_discount = $request->get("total_discount");
             $invoices->total_iva = $request->get("total_iva");
             $invoices->price = $request->get("price");
             $invoices->discount = $request->get("discount");
-            $invoices->client_id = $request->get("client_id");       
+            $invoices->client_id = $request->get("client_id");
             $invoices->save();
             //Respuesta a vista redirect
             return Redirect::action('InvoicesController@index');
-        }catch(Exception $ex) {
+        } catch (Exception $ex) {
             return Redirect::action('InvoicesController@index');
         }
     }
@@ -158,7 +153,7 @@ class InvoicesController extends Controller
      * @param  \App\Invoices  $invoices
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoices $invoices,$id)
+    public function destroy(Invoices $invoices, $id)
     {
         try {
             $invoices = Invoices::find($id);
