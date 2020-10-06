@@ -21,12 +21,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($response as $product)
+                        @foreach($response['products'] as $product)
                             <tr>
                                 <th scope="row" class="d-flex align-items-center">
                                     <img style="width: 140px;height: 170px;" src="https://dafitistaticco-a.akamaihd.net/p/color-siete-1662-32463-1-product.jpg" class="card-img" alt="...">
                                     <div class="pl-4" style="line-height: 0;">
-                                        <p style="text-transform: uppercase">Camiseta</p>
+                                        <p style="text-transform: uppercase">{{$product->size}}</p>
                                         <p>(COLOR: Negro, TALLA: M)</p>
                                     </div>
                                 </th>
