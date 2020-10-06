@@ -58,17 +58,30 @@ class CarsController extends Controller
             $response = null;
             if ($request->session()->exists('token-car')) {
                 $car =  $request->session()->get('token-car');
+
+                $products =  DB::table('car_details')->join(
+                    'products',
+                    'car_details.product_id',
+                    '=',
+                    'products.id'
+                )->select([
+                    'products.*',
+                    'car_details.*'
+                ])->where('car_details.car_id', '=', $car->id);
+
+                // DB::table('car_details')
+                // ->select('*')
+                // ->where('car_id', '=', $car->id)->get()
+
                 $cars = DB::table('cars')
-                ->select('*')
-                ->where('token', '=', $car->token)->get();
-                $response= [
-                "car" => $cars,
-                "products"=> DB::table('car_details')
-                ->select('*')
-                ->where('car_id', '=', $car->id)->get()
-            ];
+                    ->select('*')
+                    ->where('token', '=', $car->token)->get();
+                $response = [
+                    "car" => $cars,
+                    "products" => $products
+                ];
             }
-            
+
             return view('shoppingCar')->with('response', $response);
         } catch (Exception $ex) {
             return Redirect::action('ProductsController@index');
