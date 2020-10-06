@@ -92,7 +92,7 @@ class InvoicesController extends Controller
                 )->select([
                     'products.*',
                     'invoice_details.*'
-                ])->where('invoice_details.invoice_id', '=', $invoice->id);
+                ])->where('invoice_details.invoice_id', '=', $invoice->id)->get();
                 $response = [
                     "invoice" => $invoice,
                     "products" => $products
