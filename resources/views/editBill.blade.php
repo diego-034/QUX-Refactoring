@@ -14,18 +14,18 @@
                 @foreach($response['products'] as $product)
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                    <input type="text" value="{{ $product->name }}" name="last_name" id="last_name" class="input-text" placeholder="Producto" required disabled>(Producto: {{ $product->name }})</input>
+                    <input type="text" value="{{ $product->name }}" name="last_name" id="last_name" class="input-text" placeholder="Producto" required disabled>(Producto)</input>
 
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="text" value="{{ $product->size }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required disabled>(Talla: {{ $product->size }})</input>
+                        <input type="text" value="{{ $product->size }}" name="last_name" id="last_name" class="input-text" placeholder="Talla" required disabled>(Talla)</input>
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>(Cantidad: {{ $product->quantity }})</input>
+                    <input type="number" value="{{ $product->quantity }}" name="company" class="company" id="company" placeholder="Cantidad" required disabled>(Cantidad)</input>
                 </div>
                 <div class="form-row">
-                    <input type="number" value="{{ $product->price }}" name="price" class="company" id="company" placeholder="Costo" required>(Precio: {{ $product->price }})</input>
+                    <input type="number" value="{{ $product->price }}" name="price" class="company" id="company" placeholder="Costo" required>(Precio)</input>
                 </div>
                 @endforeach
             </div>

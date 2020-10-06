@@ -12,14 +12,17 @@
                 <!-- Detalles del producto -->
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                        <input type="text" name="street" class="street" id="street" placeholder="Producto" required>
+                        <input type="text" name="street" class="street" id="street" placeholder="Producto" required>(Producto)</input>
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="number" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>
+                        <input type="number" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>(talla)</input>
                     </div>
                 </div>
                 <div class="form-row">
-                    <input type="number" name="company" class="company" id="company" placeholder="Cantidad" required>
+                    <input type="number" name="company" class="company" id="company" placeholder="Cantidad" required>(Cantidad)</input>
+                </div>
+                <div class="form-row">
+                    <input type="number" name="price" class="company" id="company" placeholder="Costo" required>(Precio)</input>
                 </div>
             </div>
 
@@ -40,9 +43,6 @@
                 <div class="form-group">
                     <div class="form-row form-row-1">
                         <input type="text" name="state" class="code" id="state" placeholder="Estado" required>
-                    </div>
-                    <div class="form-row form-row-2">
-                        <input type="text" name="size" class="phone" id="size" placeholder="Talla" required>
                     </div>
                 </div>
                 <div class="form-row-last">
