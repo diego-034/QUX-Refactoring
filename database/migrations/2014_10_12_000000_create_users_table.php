@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->foreignId('user_type')->nullable()->constrained('types'); 
+            $table->foreignId('user_type')->nullable()->constrained('types')->onUpdate('cascade')->onDelete('cascade'); 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

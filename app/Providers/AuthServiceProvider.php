@@ -25,7 +25,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        /**
+         * Definiendo con Gate las validaciones de seguridad 
+         * para utiliza dentro de el middleware
+         */
         Gate::define('admin', function ($user, $us) {
             if (1 == $us->user_type) {
                 return true;

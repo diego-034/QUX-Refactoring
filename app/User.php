@@ -10,11 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+     
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    * Este es el model de Types
+    * $filleable es un Array con el modelo
+    */
     protected $fillable = [
         'name', 'email', 'password','address','phone','user_type'
     ];
