@@ -8,10 +8,14 @@
                 <h2>Información del producto</h2>                
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                        <input type="text" name="first_name" id="first_name" class="input-text" placeholder="Cod. producto" required>
+                        <select>
+                            <option disabled selected>seleccione</option>
+                            <option>1</option>
+                            <option>1</option>
+                        </select> 
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Nombre" required>
+                        <input type="number" name="last_name" id="last_name" class="input-text" placeholder="Talla" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -19,12 +23,10 @@
                 </div>
             </div>
 
-
-            
             <div class="form-right">
                 <h2>Detalles de la factura</h2>
                 <div class="form-row">
-                    <input type="text" name="street" class="street" id="street" placeholder="Total" value="{{$response->total}}" required>
+                    <input type="text" name="street" class="street" id="street" placeholder="Total" value="{{$response->total}}" required disabled>
                 </div>
                 <div class="form-row">
                     <input type="text" name="additional" class="additional" id="additional" placeholder="Descuento" value="{{$response->discount}}" required>
@@ -36,10 +38,10 @@
                 </div>
                 <div class="form-group">
                     <div class="form-row form-row-1">
-                        <input type="text" name="state" class="code" id="state" placeholder="Estado" value="{{$response->state}}" required>
+                        <input type="text" name="state" class="code" id="state" placeholder="Estado" value="{{$response->state}}" required disabled>
                     </div>
                     <div class="form-row form-row-2">
-                        <input type="text" name="size" class="phone" id="size" placeholder="Talla" value="{{$response->size}}" required>
+                        <input type="text" name="size" class="phone" id="size" placeholder="Talla" value="{{$response->size}}" required disabled>
                     </div>
                 </div>
                 <div class="form-row-last">
